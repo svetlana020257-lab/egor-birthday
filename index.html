@@ -111,20 +111,21 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
   .rules{grid-template-columns:1fr}
 }
 
-/* ===== путешествия ===== */
+/* ===== путешествия: архив негативов ===== */
 .travels{background:var(--night);color:#fff;padding-block:clamp(56px,9vw,100px)}
 .travels .lead{max-width:46ch;color:#cfd6df;margin:14px 0 0}
-.gallery{columns:4 220px;column-gap:20px;margin-top:38px}
-.ph{break-inside:avoid;margin:0 0 22px;background:#fff;padding:9px 9px 12px;box-shadow:0 16px 36px rgba(0,0,0,.4);transition:transform .3s ease;display:inline-block;width:100%}
-.ph:nth-child(3n+1){transform:rotate(-1.6deg)}
-.ph:nth-child(3n+2){transform:rotate(1.2deg)}
-.ph:nth-child(3n){transform:rotate(-.6deg)}
-.ph:hover{transform:rotate(0) scale(1.03);position:relative;z-index:2}
-.ph img{width:100%;height:auto}
-.ph figcaption{font:700 21px/1.1 var(--hand);color:var(--red);margin-top:8px;text-align:center}
-.ph.feat figcaption{font-size:24px}
-@media (max-width:560px){.gallery{columns:2;column-gap:12px}.ph{padding:6px 6px 9px;margin-bottom:14px}.ph figcaption{font-size:17px}}
-@media (prefers-reduced-motion:reduce){.ph{transition:none}}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+.ph{margin:0;display:flex;flex-direction:column;min-width:0}
+.ph.feat{grid-row:span 2}
+.ph .frame{position:relative;flex:1;background:#221e1a;padding:8px;min-height:0}
+.ph img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:filter .4s ease,transform .4s ease}
+.ph.feat img{aspect-ratio:auto}
+.ph:hover img{filter:saturate(1.1)}
+.ph figcaption{display:flex;justify-content:space-between;gap:8px;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#cfd6df;background:#221e1a;padding:0 8px 8px}
+.ph figcaption span{color:var(--amber)}
+.ph .mark{position:absolute;right:14px;bottom:16px;font:700 30px/1 var(--hand);color:#fff;background:var(--red);padding:4px 10px 6px;transform:rotate(-6deg);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+@media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);gap:10px}.ph .mark{font-size:22px;right:10px;bottom:12px}}
+@media (prefers-reduced-motion:reduce){.ph img{transition:none}}
 
 /* ===== маршрут ===== */
 .mapsec{background:var(--paper);padding-block:clamp(56px,9vw,96px)}
@@ -364,10 +365,10 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
 <!-- ===================== ПУТЕШЕСТВИЯ ===================== -->
 <section class="travels">
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--amber)">Из личного архива</div>
-    <h2 style="margin-top:8px">Где уже побывал Егор</h2>
-    <p class="lead">Кавказ, Китай, Владивосток. Следующая точка маршрута — его день рождения.</p>
-    <div class="gallery"><figure class="ph feat"><img src="img/t3.jpg" alt="Егор на Кавказе" loading="lazy"><figcaption>Кавказ</figcaption></figure><figure class="ph "><img src="img/t4.jpg" alt="Лестница к Небесным вратам на горе Тяньмэнь" loading="lazy"><figcaption>Китай, Тяньмэнь</figcaption></figure><figure class="ph "><img src="img/t1.jpg" alt="Токаревский маяк и Русский мост" loading="lazy"><figcaption>Владивосток</figcaption></figure><figure class="ph "><img src="img/t7.jpg" alt="Деревянная рама на фоне заснеженных гор" loading="lazy"><figcaption>Кавказ</figcaption></figure><figure class="ph "><img src="img/t5.jpg" alt="Стеклянная тропа над пропастью" loading="lazy"><figcaption>Китай, тропа над пропастью</figcaption></figure><figure class="ph "><img src="img/t2.jpg" alt="Скалистый мыс над морем" loading="lazy"><figcaption>Остров Русский</figcaption></figure><figure class="ph "><img src="img/t6.jpg" alt="Заснеженный каньон" loading="lazy"><figcaption>Кавказ</figcaption></figure><figure class="ph "><img src="img/t8.jpg" alt="Старые башни на скалах" loading="lazy"><figcaption>Кавказ</figcaption></figure></div>
+    <div class="eyebrow" style="color:var(--amber)">Архив негативов</div>
+    <h2 style="margin-top:8px">Кандидаты на обложку</h2>
+    <p class="lead">Шон О'Коннелл всю жизнь искал квинтэссенцию жизни. Егор, похоже, находит её в дороге.</p>
+    <div class="gallery"><figure class="ph feat"><div class="frame"><img src="img/t3.jpg" alt="Егор у старой башни на Кавказе" loading="lazy"><span class="mark">на обложку!</span></div><figcaption><span>№ 01</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t4.jpg" alt="Лестница к Небесным вратам на горе Тяньмэнь" loading="lazy"></div><figcaption><span>№ 02</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t1.jpg" alt="Токаревский маяк и Русский мост" loading="lazy"></div><figcaption><span>№ 03</span>Владивосток</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t6.jpg" alt="Заснеженный каньон" loading="lazy"></div><figcaption><span>№ 04</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t5.jpg" alt="Стеклянная тропа над пропастью" loading="lazy"></div><figcaption><span>№ 05</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t2.jpg" alt="Скалистый мыс над морем" loading="lazy"></div><figcaption><span>№ 06</span>Остров Русский</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t8.jpg" alt="Старые башни на скалах" loading="lazy"></div><figcaption><span>№ 07</span>Кавказ</figcaption></figure></div>
   </div>
 </section>
 
