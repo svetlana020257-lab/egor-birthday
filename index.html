@@ -3,211 +3,335 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta property="og:title" content="Невероятные приключения Егора">
-<meta property="og:description" content="27 октября, 16:00 · Чкаловские просторы, 463. Заявка в экспедицию внутри.">
-<style>[hidden]{display:none!important}img{max-width:100%}</style>
 <title>Невероятные приключения Егора</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&family=Caveat:wght@600;700&display=swap">
+<meta name="description" content="Приглашение на день рождения Егора: 27 октября, 16:00, Чкаловские просторы, 463.">
+<meta property="og:title" content="Невероятные приключения Егора">
+<meta property="og:description" content="27 октября, 16:00 · Чкаловские просторы, 463. Регистрация на рейс внутри.">
+<meta property="og:image" content="img/p1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@700&display=swap">
 <style>
-/* Layout: архив фотожурнала — шапка выпуска, контактный лист с обведённым кадром 25, табло вылета, маршрут экспедиции со штампами, анкета как заявка в экспедицию */
+/* Layout: кино-постер — сцена «на крыле над облаками», цитата крупным кеглем, посадочный талон с отрывным корешком, три постера-кадра, карта маршрута, регистрация на рейс */
 :root{
-  --paper:#e9e4da; --sheet:#f4f0e8; --ink:#171512; --muted:#6b645a; --grease:#c8321f; --film:#221e1a; --amber:#e0a13a; --ice:#5d7f93;
-  --display:"Cormorant Garamond",Georgia,serif;
+  --night:#0d1b2e; --sky:#1d3c5f; --paper:#efe7d8; --paper2:#f8f3ea; --ink:#16130f; --muted:#6d6457;
+  --red:#cf3a24; --amber:#f2b45a; --green:#a9c63c; --line:#cdbfa8;
+  --cond:"Oswald","Arial Narrow",sans-serif;
+  --serif:"Cormorant Garamond",Georgia,serif;
   --body:"Lora",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --hand:"Caveat","Segoe Script",cursive;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .27 0 0 0 0 .22 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.page{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 64px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+img{max-width:100%;display:block}
 svg{display:block}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.hand{font-family:var(--hand);color:var(--grease);font-weight:700}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,42px);line-height:1;margin:0;text-wrap:balance}
-section{margin-top:64px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1;margin:0;font-size:clamp(34px,6vw,58px);text-wrap:balance}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 20px;border:2px solid currentColor;cursor:pointer;background:transparent;color:inherit}
+.btn.fill{background:var(--red);border-color:var(--red);color:#fff}
+.btn.fill:hover{background:#b02f1c;border-color:#b02f1c}
+.btn.ghost:hover{background:#fff;color:var(--night)}
 
-/* шапка выпуска */
-.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:8px}
-.title{margin-top:26px;position:relative}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(44px,10.5vw,96px);line-height:.92;margin:0;letter-spacing:-.01em;text-wrap:balance}
-h1 .name{display:inline-block;position:relative;color:var(--ink)}
-h1 .name svg{position:absolute;left:-6%;top:-8%;width:112%;height:120%;pointer-events:none}
-.deck{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:22px}
-.deck p{margin:0;max-width:44ch;font-size:18px}
-.when{text-align:right;font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
-.when small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-top:6px}
-@media (max-width:600px){.deck{grid-template-columns:1fr}.when{text-align:left}}
+/* ===== сцена на крыле ===== */
+.hero{position:relative;color:#fff;overflow:hidden;min-height:clamp(560px,86vh,860px);display:flex;flex-direction:column}
+.hero .scene{position:absolute;inset:0;width:100%;height:100%}
+.hero .inner{position:relative;z-index:2;padding-block:calc(28px + env(safe-area-inset-top,0px)) 40px;flex:1;display:flex;flex-direction:column}
+.topbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.85}
+.hero h1{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(48px,10.5vw,124px);line-height:.9;margin:clamp(28px,6vh,64px) 0 0;letter-spacing:-.005em;max-width:9.5em;text-shadow:0 2px 30px rgba(8,16,30,.35)}
+.hero h1 span{display:block;font-family:var(--serif);font-weight:700;text-transform:none;font-size:.46em;letter-spacing:.02em;line-height:1.1;color:var(--amber);margin-bottom:.15em}
+.hero .meta{margin-top:22px;font:600 clamp(15px,2.2vw,19px) var(--mono);letter-spacing:.08em;display:flex;gap:10px 22px;flex-wrap:wrap}
+.hero .meta b{color:var(--amber);font-weight:600}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .hint{margin-top:auto;padding-top:30px;font-family:var(--hand);font-size:24px;color:#fff;opacity:.9}
+.cloudsA{animation:drift 40s ease-in-out infinite alternate}
+.cloudsB{animation:drift 70s ease-in-out infinite alternate-reverse}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-400px)}}
+.figure{cursor:pointer}
+.figure:hover .jacket{fill:#e5472f}
+@media (prefers-reduced-motion:reduce){.cloudsA,.cloudsB{animation:none}html{scroll-behavior:auto}}
 
-/* контактный лист */
-.contact{margin-top:40px;background:var(--film);padding:14px 12px 16px;position:relative;box-shadow:0 14px 30px rgba(23,21,18,.22)}
-.contact .head{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--amber);padding:0 2px 10px}
-.frames{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.fr{position:relative;aspect-ratio:3/2;background:#3b342c;overflow:hidden;max-width:100%;border:0;padding:0;cursor:pointer;display:block;width:100%}
-.fr svg{width:100%;height:100%}
-.fr .sc{filter:invert(1) hue-rotate(180deg) saturate(.35) contrast(.92);transition:filter .6s ease}
-.fr:hover .sc,.fr.dev .sc{filter:none}
-.fr .mk{position:absolute;inset:0;pointer-events:none}
-.fr i{position:absolute;left:4px;top:2px;font:600 9px var(--mono);color:var(--amber);font-style:normal;text-shadow:0 0 3px #000}
-.fr .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(23,21,18,.78);color:#f4f0e8;font:600 9.5px/1.25 var(--mono);letter-spacing:.02em;padding:4px 5px;text-align:left;transform:translateY(101%);transition:transform .3s ease}
-.fr:hover .cap,.fr.dev .cap,.fr:focus-visible .cap{transform:none}
-.fr:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-.hint{font:400 11px var(--mono);color:#a99f90;letter-spacing:.08em;margin-top:10px}
-@media (prefers-reduced-motion:reduce){.fr .sc,.fr .cap{transition:none}}
-.tail{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:12px}
-.tail .note{font-family:var(--hand);font-size:24px;color:#f1d7c8;line-height:1.1;text-align:right}
-.f25{position:relative;width:min(34%,170px);aspect-ratio:3/2;background:#3b342c;border:0;padding:0;cursor:pointer;flex:0 0 auto}
-.f25 svg.scene{width:100%;height:100%}
-.f25 .ring{position:absolute;left:-18%;top:-26%;width:136%;height:152%;pointer-events:none}
-.f25 i{position:absolute;left:4px;bottom:2px;font:600 10px var(--mono);color:var(--amber);font-style:normal}
-.f25:hover .ring path{stroke-width:5}
-.f25:focus-visible{outline:3px solid var(--amber);outline-offset:6px}
-@media (max-width:600px){.frames{grid-template-columns:repeat(4,1fr)}.f25{width:46%}}
+.secret{position:relative;z-index:3;background:var(--paper2);color:var(--ink);border-left:4px solid var(--red);padding:14px 18px;margin-top:18px;max-width:440px}
+.secret b{display:block;font-family:var(--cond);text-transform:uppercase;font-size:20px;letter-spacing:.02em}
 
-.secret{margin-top:14px;background:var(--sheet);border:1px solid var(--ink);padding:16px 18px}
-.secret b{font-family:var(--display);font-size:24px;display:block;line-height:1.1}
+/* ===== цитата ===== */
+.quote{background:var(--night);color:#fff;padding-block:clamp(56px,10vw,110px)}
+.quote p{font-family:var(--cond);font-weight:600;text-transform:uppercase;font-size:clamp(30px,5.6vw,64px);line-height:1.04;margin:0;letter-spacing:.005em}
+.quote p em{font-style:normal;color:var(--amber)}
+.quote .sig{margin-top:26px;display:flex;align-items:center;gap:14px;font-family:var(--serif);font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:#d8d0c2}
+.quote .sig::before{content:"";width:48px;height:1px;background:currentColor}
 
-/* табло */
-.board{margin-top:28px;background:var(--film);color:#efe7da;padding:16px 18px;font-family:var(--mono)}
-.board .row{display:grid;grid-template-columns:1.1fr 1.6fr .8fr 1fr;gap:12px;align-items:center}
-.board .row.h{font-size:11px;letter-spacing:.14em;color:#a99f90;padding-bottom:8px;border-bottom:1px solid #4a433a;margin-bottom:10px}
-.board .row.d{font-size:15px}
-.board .gate{color:var(--amber);font-weight:600}
-.board .status{color:#8fd3a6}
-.count{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.cell{background:#2f2a24;border:1px solid #4a433a;padding:8px 12px;min-width:76px;text-align:center}
-.cell b{display:block;font-size:30px;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums;font-weight:600}
-.cell span{font-size:10px;letter-spacing:.14em;color:#a99f90}
-@media (max-width:600px){.board .row{grid-template-columns:1fr 1fr}.board .row > :nth-child(3),.board .row > :nth-child(4){display:none}}
+/* ===== посадочный талон ===== */
+.boarding{background:var(--paper);padding-block:clamp(56px,9vw,96px);background-image:radial-gradient(rgba(22,19,15,.05) 1px,transparent 1px);background-size:5px 5px}
+.boarding .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.ticket{display:grid;grid-template-columns:1fr 290px;background:var(--paper2);box-shadow:0 22px 50px rgba(22,19,15,.18);position:relative}
+.ticket::before,.ticket::after{content:"";position:absolute;right:290px;width:28px;height:28px;border-radius:50%;background:var(--paper);transform:translateX(50%)}
+.ticket::before{top:-14px}.ticket::after{bottom:-14px}
+.t-main{padding:26px 28px 24px;min-width:0}
+.t-top{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.t-top .air{font:700 18px var(--cond);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:10px}
+.route{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin:22px 0}
+.route .city{min-width:0}
+.route .code{font:700 clamp(40px,7vw,68px)/1 var(--cond);letter-spacing:.02em}
+.route .name{font:600 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.route .to{text-align:right}
+.route .plane{width:clamp(60px,10vw,110px);color:var(--red)}
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 18px;border-top:1px dashed var(--line);padding-top:16px}
+.f{min-width:0}
+.f .k{font:600 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.f .v{font:600 22px/1.15 var(--cond);text-transform:uppercase;margin-top:3px;overflow-wrap:anywhere}
+.f .v.small{font:600 15px/1.3 var(--body);text-transform:none}
+.f.wide{grid-column:span 2}
+.count{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.count .c{background:var(--ink);color:var(--paper2);padding:8px 10px 6px;min-width:68px;text-align:center}
+.count .c b{display:block;font:600 28px/1 var(--mono);color:var(--amber);font-variant-numeric:tabular-nums}
+.count .c span{font:400 9.5px var(--mono);letter-spacing:.16em}
+.t-stub{border-left:2px dashed var(--line);padding:26px 22px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.t-stub .addr{font:600 24px/1.1 var(--cond);text-transform:uppercase}
+.t-stub .row{display:flex;gap:8px;flex-wrap:wrap}
+.t-stub .mini{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:7px 10px;background:transparent;cursor:pointer;text-decoration:none;color:var(--ink)}
+.t-stub .mini:hover{background:var(--ink);color:var(--paper2)}
+.barcode{height:56px;margin-top:auto;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px,var(--ink) 13px 16px,transparent 16px 18px)}
+.stamp{position:absolute;right:320px;top:18px;font:700 13px var(--mono);letter-spacing:.14em;color:var(--red);border:2.5px solid var(--red);padding:6px 10px;transform:rotate(-8deg);opacity:.85;text-transform:uppercase}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.rule{border-top:2px solid var(--ink);padding-top:12px}
+.rule .k{font:600 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.rule b{display:block;font:600 22px/1.15 var(--cond);text-transform:uppercase;margin:4px 0 4px}
+@media (max-width:820px){
+  .ticket{grid-template-columns:1fr}
+  .ticket::before,.ticket::after{display:none}
+  .t-stub{border-left:0;border-top:2px dashed var(--line)}
+  .stamp{right:16px;top:auto;bottom:-12px}
+  .fields{grid-template-columns:repeat(2,1fr)}
+  .rules{grid-template-columns:1fr}
+}
 
-/* маршрут */
-.route{display:grid;grid-template-columns:1fr 1.25fr;gap:28px;align-items:start;margin-top:22px}
-.route p{margin:0 0 14px}
-.map{background:#f4f0e8;border:1px solid var(--ink);padding:0;position:relative;min-width:0;overflow:hidden}
+/* ===== постеры ===== */
+.posters{background:var(--night);color:#fff;padding-block:clamp(56px,9vw,100px)}
+.posters .lead{max-width:46ch;color:#cfd6df;margin:14px 0 0}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;align-items:start}
+.poster{margin:0;background:#fff;padding:10px 10px 14px;color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.4);transition:transform .3s ease}
+.poster:nth-child(1){transform:rotate(-2deg)}
+.poster:nth-child(2){transform:rotate(1.5deg) translateY(26px)}
+.poster:nth-child(3){transform:rotate(-1deg)}
+.poster:hover{transform:rotate(0) scale(1.02)}
+.poster img{aspect-ratio:2/3;object-fit:cover;width:100%}
+.poster figcaption{font:700 22px var(--hand);color:var(--red);margin-top:8px;text-align:center}
+@media (max-width:760px){
+  .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:6px 4px 30px;margin-left:calc(-1 * max(18px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(18px,env(safe-area-inset-right,0px)));padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+  .poster{flex:0 0 74%;scroll-snap-align:center}
+  .poster:nth-child(2){transform:rotate(1.5deg)}
+}
+
+/* ===== маршрут ===== */
+.mapsec{background:var(--paper);padding-block:clamp(56px,9vw,96px)}
+.mapgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center;margin-top:10px}
+.mapgrid p{margin:14px 0 0;max-width:40ch}
+.map{background:#f4f0e8;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);overflow:hidden;min-width:0}
 .map svg{width:100%;height:auto}
-.addr{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1}
-.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.btn{font:600 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:8px 12px;cursor:pointer;text-decoration:none;display:inline-block}
-.btn:hover{background:var(--ink);color:var(--sheet)}
-.btn.solid{background:var(--ink);color:var(--sheet)}
-.btn.solid:hover{background:var(--grease);border-color:var(--grease)}
-@media (max-width:640px){.route{grid-template-columns:1fr}}
+@media (max-width:760px){.mapgrid{grid-template-columns:1fr}}
 
-/* памятка */
-.memo{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-top:1px solid var(--ink)}
-.memo div{padding:16px 16px 0 0;min-width:0}
-.memo div + div{padding-left:16px;border-left:1px solid #b9b0a2}
-.memo .label{display:block;margin-bottom:6px}
-.memo b{display:block;font-family:var(--display);font-size:23px;line-height:1.15;margin-bottom:4px}
-@media (max-width:640px){.memo{grid-template-columns:1fr}.memo div + div{padding-left:0;border-left:0;border-top:1px solid #b9b0a2;margin-top:14px}}
+/* ===== вишлист ===== */
+.wish{background:var(--red);color:#fff;padding-block:40px}
+.wish .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.wish h2{font-size:clamp(28px,4.5vw,44px)}
+.wish .btn{background:#fff;color:var(--ink);border-color:#fff}
+.wish .btn:hover{background:var(--night);border-color:var(--night);color:#fff}
 
-/* вишлист */
-.wish{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border:1px solid var(--ink);background:var(--sheet);padding:20px 22px}
-.wish p{margin:6px 0 0;max-width:46ch}
-
-/* анкета */
-.form{background:var(--sheet);border:1px solid var(--ink);padding:26px 22px 28px;position:relative}
-.form .stampmark{position:absolute;right:14px;top:-26px;width:116px;transform:rotate(10deg)}
-.form .intro{margin:10px 0 22px;max-width:52ch}
-.field{margin-bottom:22px}
+/* ===== регистрация ===== */
+.reg{background:var(--paper2);padding-block:clamp(56px,9vw,96px)}
+.reg .box{max-width:760px}
+.reg .intro{margin:14px 0 28px;max-width:52ch}
+.field{margin-bottom:24px}
 .q{display:block;font-weight:600;margin-bottom:8px}
 .q small{font-weight:400;color:var(--muted)}
-input[type=text],textarea{width:100%;font:17px var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);padding:8px 2px;border-radius:0}
-textarea{min-height:64px;resize:vertical}
+input[type=text],textarea{width:100%;font:17px var(--body);color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);padding:9px 2px;border-radius:0}
+textarea{min-height:70px;resize:vertical;border:2px solid var(--ink);padding:10px 12px}
 .opts{display:flex;gap:10px;flex-wrap:wrap}
-label.opt{flex:1 1 160px;display:flex;align-items:center;gap:10px;cursor:pointer;border:1.5px solid var(--ink);padding:10px 12px;font-weight:600;position:relative;background:transparent}
+label.opt{flex:1 1 170px;display:flex;align-items:center;gap:10px;cursor:pointer;border:2px solid var(--ink);padding:12px 14px;font:600 15px var(--mono);letter-spacing:.04em;text-transform:uppercase;position:relative;transition:background .15s}
 label.opt input{position:absolute;opacity:0;width:1px;height:1px}
-label.opt .box{width:22px;height:22px;border:1.5px solid var(--ink);flex:0 0 22px;position:relative}
-label.opt:has(input:checked){background:#fff}
-label.opt:has(input:checked) .box::after{content:"";position:absolute;inset:-10px -8px -6px -6px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 22 Q12 26 16 34 Q24 14 38 4' fill='none' stroke='%23c8321f' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
-.submit{width:100%;font:600 15px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sheet);background:var(--ink);border:0;padding:16px;cursor:pointer}
-.submit:hover{background:var(--grease)}
-:focus-visible{outline:3px solid var(--grease);outline-offset:3px}
-.err{color:var(--grease);font-weight:600;margin-top:12px}
-.done{text-align:center}
-.done .big{font-family:var(--display);font-weight:700;font-size:38px;line-height:1.05}
-.done p{margin:12px auto;max-width:44ch}
-.again{background:none;border:0;color:var(--grease);text-decoration:underline;font:600 15px var(--body);cursor:pointer;margin-top:10px}
+label.opt:has(input:checked){background:var(--ink);color:var(--paper2)}
+label.opt:has(input:focus-visible){outline:3px solid var(--amber);outline-offset:2px}
+.submit{width:100%;font:600 16px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--red);border:0;padding:18px;cursor:pointer}
+.submit:hover{background:#b02f1c}
+.submit:disabled{opacity:.6;cursor:wait}
+.err{color:var(--red);font-weight:600;margin-top:12px}
+.done{border:2px solid var(--ink);padding:26px 22px;background:#fff}
+.done .big{font:700 clamp(30px,5vw,44px)/1 var(--cond);text-transform:uppercase}
+.done p{margin:12px 0}
+.again{background:none;border:0;color:var(--red);text-decoration:underline;font:600 15px var(--body);cursor:pointer;padding:0;margin-top:8px}
 
-/* для организатора */
-.guests{margin-top:28px;border:1.5px dashed var(--ink);padding:18px}
-.tally{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.pill{font:600 13px var(--mono);border:1.5px solid var(--ink);padding:4px 10px;font-variant-numeric:tabular-nums}
-.pill.y{background:var(--ink);color:var(--sheet)}.pill.n{border-color:var(--grease);color:var(--grease)}
-.tablebox{overflow-x:auto}
-.gl{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
-.gl td,.gl th{text-align:left;padding:7px 6px;border-top:1px solid #c9bfb0;vertical-align:top}
-.gl th{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:0}
-
-footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer{background:var(--night);color:#cfd6df;padding-block:34px calc(34px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;font-size:18px}
 </style>
-
 </head>
 <body>
-<div class="page">
 
-  <header>
-    <div class="mast">
-      <span class="label">Специальный выпуск · Новосибирск</span>
-      <span class="label">Выпуск № 27/10</span>
-    </div>
-    <div class="title">
-      <span class="hand" style="font-size:28px">в главной роли — именинник</span>
-      <h1>Невероятные приключения <span class="name">Егора<svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path d="M30 60C40 18 250 6 286 46S230 116 130 112 8 86 28 50 170 10 262 26" fill="none" stroke="#c8321f" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
-    </div>
-    <div class="deck">
-      <p>Хватит мечтать о приключениях наяву. Егор празднует день рождения и приглашает в экспедицию: долгий вечер, хорошие люди и немного приключений.</p>
-      <div class="when">27 октября<br>16:00<small>ВТОРНИК</small></div>
-    </div>
-  </header>
+<!-- ===================== СЦЕНА: НА КРЫЛЕ ===================== -->
+<header class="hero">
+  <svg class="scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0d1b2e"/><stop offset=".38" stop-color="#24496f"/><stop offset=".62" stop-color="#7c86a0"/><stop offset=".76" stop-color="#e6a265"/><stop offset=".86" stop-color="#f7cf8f"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 700) scale(520 300)">
+        <stop offset="0" stop-color="#fff2cf" stop-opacity=".95"/><stop offset=".35" stop-color="#ffd38a" stop-opacity=".45"/><stop offset="1" stop-color="#ffd38a" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="wingTop" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8e9aa6"/><stop offset=".55" stop-color="#d9dfe4"/><stop offset=".85" stop-color="#f4e2c6"/><stop offset="1" stop-color="#fbe9cb"/>
+      </linearGradient>
+      <linearGradient id="wingEdge" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#4a5562"/><stop offset="1" stop-color="#8d8577"/>
+      </linearGradient>
+      <linearGradient id="fus" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#6c7784"/><stop offset="1" stop-color="#c8ced4"/>
+      </linearGradient>
+      <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
+    <rect width="1600" height="1000" fill="url(#sky)"/>
+    <g fill="#fff" opacity=".8"><circle cx="160" cy="90" r="1.6"/><circle cx="420" cy="60" r="1.2"/><circle cx="700" cy="120" r="1.4"/><circle cx="980" cy="70" r="1.1"/><circle cx="1320" cy="110" r="1.5"/><circle cx="1500" cy="50" r="1.2"/><circle cx="560" cy="200" r="1"/><circle cx="1120" cy="180" r="1"/></g>
+    <rect width="1600" height="1000" fill="url(#glow)"/>
+    <circle cx="1210" cy="705" r="54" fill="#fff6df"/>
+    <!-- облака -->
+    <g class="cloudsB" opacity=".95"><rect x="-200" y="748" width="2200" height="252" fill="#e7b98a"/><circle cx="-200" cy="746" r="24" fill="#e7b98a"/><circle cx="-162" cy="745" r="15" fill="#e7b98a"/><circle cx="-119" cy="749" r="17" fill="#e7b98a"/><circle cx="-75" cy="758" r="15" fill="#e7b98a"/><circle cx="-33" cy="744" r="20" fill="#e7b98a"/><circle cx="-5" cy="750" r="27" fill="#e7b98a"/><circle cx="23" cy="745" r="21" fill="#e7b98a"/><circle cx="66" cy="744" r="27" fill="#e7b98a"/><circle cx="110" cy="747" r="17" fill="#e7b98a"/><circle cx="154" cy="753" r="15" fill="#e7b98a"/><circle cx="198" cy="744" r="26" fill="#e7b98a"/><circle cx="231" cy="752" r="15" fill="#e7b98a"/><circle cx="261" cy="750" r="23" fill="#e7b98a"/><circle cx="291" cy="753" r="17" fill="#e7b98a"/><circle cx="326" cy="745" r="19" fill="#e7b98a"/><circle cx="370" cy="749" r="20" fill="#e7b98a"/><circle cx="399" cy="753" r="16" fill="#e7b98a"/><circle cx="426" cy="751" r="20" fill="#e7b98a"/><circle cx="469" cy="756" r="27" fill="#e7b98a"/><circle cx="505" cy="753" r="28" fill="#e7b98a"/><circle cx="545" cy="748" r="25" fill="#e7b98a"/><circle cx="578" cy="755" r="19" fill="#e7b98a"/><circle cx="611" cy="753" r="16" fill="#e7b98a"/><circle cx="646" cy="751" r="30" fill="#e7b98a"/><circle cx="682" cy="748" r="28" fill="#e7b98a"/><circle cx="710" cy="752" r="17" fill="#e7b98a"/><circle cx="749" cy="756" r="19" fill="#e7b98a"/><circle cx="785" cy="758" r="18" fill="#e7b98a"/><circle cx="826" cy="744" r="27" fill="#e7b98a"/><circle cx="854" cy="749" r="24" fill="#e7b98a"/><circle cx="891" cy="753" r="29" fill="#e7b98a"/><circle cx="931" cy="757" r="16" fill="#e7b98a"/><circle cx="959" cy="751" r="22" fill="#e7b98a"/><circle cx="987" cy="755" r="15" fill="#e7b98a"/><circle cx="1022" cy="748" r="28" fill="#e7b98a"/><circle cx="1060" cy="744" r="25" fill="#e7b98a"/><circle cx="1100" cy="746" r="25" fill="#e7b98a"/><circle cx="1129" cy="744" r="29" fill="#e7b98a"/><circle cx="1161" cy="746" r="23" fill="#e7b98a"/><circle cx="1194" cy="750" r="26" fill="#e7b98a"/><circle cx="1235" cy="746" r="16" fill="#e7b98a"/><circle cx="1275" cy="752" r="26" fill="#e7b98a"/><circle cx="1309" cy="757" r="18" fill="#e7b98a"/><circle cx="1348" cy="755" r="22" fill="#e7b98a"/><circle cx="1387" cy="754" r="25" fill="#e7b98a"/><circle cx="1425" cy="746" r="21" fill="#e7b98a"/><circle cx="1453" cy="746" r="19" fill="#e7b98a"/><circle cx="1486" cy="744" r="21" fill="#e7b98a"/><circle cx="1527" cy="748" r="19" fill="#e7b98a"/><circle cx="1562" cy="746" r="14" fill="#e7b98a"/><circle cx="1601" cy="753" r="25" fill="#e7b98a"/><circle cx="1645" cy="746" r="24" fill="#e7b98a"/><circle cx="1687" cy="751" r="15" fill="#e7b98a"/><circle cx="1730" cy="750" r="26" fill="#e7b98a"/><circle cx="1768" cy="745" r="26" fill="#e7b98a"/><circle cx="1809" cy="744" r="26" fill="#e7b98a"/><circle cx="1841" cy="747" r="16" fill="#e7b98a"/><circle cx="1881" cy="745" r="19" fill="#e7b98a"/><circle cx="1917" cy="745" r="15" fill="#e7b98a"/><circle cx="1943" cy="752" r="18" fill="#e7b98a"/><circle cx="1972" cy="753" r="25" fill="#e7b98a"/><circle cx="1998" cy="757" r="16" fill="#e7b98a"/></g>
+    <g class="cloudsA"><rect x="-200" y="800" width="2200" height="200" fill="#f2d1a6"/><circle cx="-200" cy="802" r="41" fill="#f2d1a6"/><circle cx="-156" cy="800" r="42" fill="#f2d1a6"/><circle cx="-86" cy="805" r="33" fill="#f2d1a6"/><circle cx="-35" cy="797" r="37" fill="#f2d1a6"/><circle cx="8" cy="803" r="37" fill="#f2d1a6"/><circle cx="63" cy="800" r="37" fill="#f2d1a6"/><circle cx="105" cy="797" r="26" fill="#f2d1a6"/><circle cx="168" cy="807" r="32" fill="#f2d1a6"/><circle cx="216" cy="809" r="37" fill="#f2d1a6"/><circle cx="278" cy="804" r="27" fill="#f2d1a6"/><circle cx="318" cy="804" r="28" fill="#f2d1a6"/><circle cx="369" cy="807" r="26" fill="#f2d1a6"/><circle cx="426" cy="808" r="22" fill="#f2d1a6"/><circle cx="482" cy="806" r="31" fill="#f2d1a6"/><circle cx="549" cy="807" r="24" fill="#f2d1a6"/><circle cx="616" cy="804" r="30" fill="#f2d1a6"/><circle cx="667" cy="801" r="27" fill="#f2d1a6"/><circle cx="731" cy="804" r="29" fill="#f2d1a6"/><circle cx="788" cy="804" r="46" fill="#f2d1a6"/><circle cx="838" cy="799" r="42" fill="#f2d1a6"/><circle cx="897" cy="809" r="46" fill="#f2d1a6"/><circle cx="943" cy="809" r="29" fill="#f2d1a6"/><circle cx="995" cy="808" r="45" fill="#f2d1a6"/><circle cx="1042" cy="804" r="28" fill="#f2d1a6"/><circle cx="1097" cy="807" r="33" fill="#f2d1a6"/><circle cx="1137" cy="808" r="22" fill="#f2d1a6"/><circle cx="1185" cy="800" r="37" fill="#f2d1a6"/><circle cx="1231" cy="805" r="44" fill="#f2d1a6"/><circle cx="1301" cy="803" r="33" fill="#f2d1a6"/><circle cx="1366" cy="801" r="45" fill="#f2d1a6"/><circle cx="1436" cy="797" r="33" fill="#f2d1a6"/><circle cx="1483" cy="799" r="25" fill="#f2d1a6"/><circle cx="1538" cy="801" r="28" fill="#f2d1a6"/><circle cx="1584" cy="805" r="37" fill="#f2d1a6"/><circle cx="1652" cy="809" r="41" fill="#f2d1a6"/><circle cx="1692" cy="810" r="37" fill="#f2d1a6"/><circle cx="1752" cy="808" r="33" fill="#f2d1a6"/><circle cx="1812" cy="809" r="24" fill="#f2d1a6"/><circle cx="1873" cy="810" r="25" fill="#f2d1a6"/><circle cx="1925" cy="808" r="44" fill="#f2d1a6"/><circle cx="1971" cy="810" r="37" fill="#f2d1a6"/><rect x="-200" y="842" width="2200" height="158" fill="#f7e0bf"/><circle cx="-200" cy="850" r="41" fill="#f7e0bf"/><circle cx="-110" cy="839" r="38" fill="#f7e0bf"/><circle cx="-35" cy="844" r="42" fill="#f7e0bf"/><circle cx="20" cy="840" r="51" fill="#f7e0bf"/><circle cx="80" cy="838" r="32" fill="#f7e0bf"/><circle cx="139" cy="852" r="46" fill="#f7e0bf"/><circle cx="218" cy="848" r="53" fill="#f7e0bf"/><circle cx="277" cy="851" r="47" fill="#f7e0bf"/><circle cx="365" cy="848" r="43" fill="#f7e0bf"/><circle cx="437" cy="846" r="32" fill="#f7e0bf"/><circle cx="522" cy="838" r="32" fill="#f7e0bf"/><circle cx="572" cy="849" r="53" fill="#f7e0bf"/><circle cx="628" cy="849" r="44" fill="#f7e0bf"/><circle cx="686" cy="851" r="41" fill="#f7e0bf"/><circle cx="748" cy="851" r="54" fill="#f7e0bf"/><circle cx="811" cy="842" r="28" fill="#f7e0bf"/><circle cx="874" cy="846" r="37" fill="#f7e0bf"/><circle cx="939" cy="847" r="52" fill="#f7e0bf"/><circle cx="1009" cy="846" r="36" fill="#f7e0bf"/><circle cx="1085" cy="840" r="54" fill="#f7e0bf"/><circle cx="1138" cy="843" r="51" fill="#f7e0bf"/><circle cx="1217" cy="847" r="49" fill="#f7e0bf"/><circle cx="1300" cy="851" r="41" fill="#f7e0bf"/><circle cx="1382" cy="846" r="32" fill="#f7e0bf"/><circle cx="1441" cy="846" r="44" fill="#f7e0bf"/><circle cx="1492" cy="845" r="55" fill="#f7e0bf"/><circle cx="1553" cy="838" r="47" fill="#f7e0bf"/><circle cx="1612" cy="840" r="33" fill="#f7e0bf"/><circle cx="1692" cy="849" r="47" fill="#f7e0bf"/><circle cx="1749" cy="838" r="45" fill="#f7e0bf"/><circle cx="1819" cy="846" r="49" fill="#f7e0bf"/><circle cx="1902" cy="845" r="45" fill="#f7e0bf"/><circle cx="1958" cy="846" r="56" fill="#f7e0bf"/></g>
+    <path d="M0 906Q200 884 420 900T860 892 1300 904 1600 894V1000H0z" fill="#fbe9cd"/>
+    <!-- фюзеляж -->
+    <path d="M-40 520Q120 540 150 700T120 1000H-40z" fill="url(#fus)"/>
+    <g fill="#33404f"><rect x="40" y="590" width="34" height="46" rx="16"/><rect x="58" y="680" width="34" height="48" rx="16"/><rect x="66" y="776" width="34" height="50" rx="16"/></g>
+    <g fill="#f5d9a8" opacity=".35"><rect x="46" y="596" width="10" height="30" rx="5"/><rect x="64" y="686" width="10" height="32" rx="5"/><rect x="72" y="782" width="10" height="34" rx="5"/></g>
+    <!-- крыло -->
+    <path d="M100 838L1330 700 1352 706 1342 730 110 960z" fill="url(#wingTop)"/>
+    <path d="M110 960L1342 730 1340 742 116 990z" fill="url(#wingEdge)"/>
+    <path d="M1330 700 1372 604 1392 606 1362 712 1352 706z" fill="#cfd5db"/>
+    <path d="M1372 604 1392 606 1388 622 1368 620z" fill="#cf3a24"/>
+    <g stroke="#8a95a1" stroke-width="2" fill="none" opacity=".7">
+      <path d="M140 900 1330 714"/>
+      <path d="M520 895 540 912M760 852 780 868M1000 808 1020 822"/>
+    </g>
+    <g stroke="#7d8894" stroke-width="2" stroke-dasharray="2 9" opacity=".6"><path d="M150 870 1320 708"/></g>
+    <!-- человек на крыле -->
+    <g class="figure" id="figure" role="button" tabindex="0" aria-label="Пасхалка">
+      <ellipse cx="900" cy="808" rx="46" ry="6" fill="#4a5562" opacity=".35"/>
+      <path d="M868 796 908 792 932 760 948 764 930 800 896 806z" fill="#1f2733"/>
+      <path d="M930 760 946 764 952 806 940 808z" fill="#1f2733"/>
+      <path d="M946 806 962 804 962 812 942 812z" fill="#111"/>
+      <path class="jacket" d="M858 742Q860 716 880 712 902 712 906 740L912 790 864 798z" fill="#cf3a24"/>
+      <path d="M902 736Q920 752 936 762" stroke="#cf3a24" stroke-width="13" stroke-linecap="round" fill="none"/>
+      <path d="M852 734 846 772 870 782 878 742z" fill="#a9c63c"/>
+      <circle cx="888" cy="696" r="15" fill="#e2b48a"/>
+      <path d="M872 692Q872 676 890 676 906 678 905 694 896 686 872 692z" fill="#3a3530"/>
+    </g>
+  </svg>
 
-  <!-- контактный лист -->
-  <div class="contact" aria-label="Контактный лист плёнки">
-    <div class="head"><span>ПЛЁНКА 400 · ЭКСПЕДИЦИЯ</span><span>КАДРЫ 1–24</span></div>
-    <div class="frames" id="frames"></div>
-    <div class="hint">НАВЕДИТЕ ИЛИ НАЖМИТЕ НА КАДР, ЧТОБЫ ПРОЯВИТЬ</div>
-    <div class="tail">
-      <div class="note">а этот кадр<br>ждём больше всех →</div>
-      <button class="f25" id="f25" type="button" aria-expanded="false" aria-controls="secret" aria-label="Открыть отмеченный кадр">
-        <svg class="scene" viewBox="0 0 150 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="150" height="100" fill="#3b342c"/><text x="75" y="58" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="700" font-size="34" fill="#ddd2c1">27.10</text><text x="75" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="2" fill="#ddd2c1">16:00</text></svg>
-        <svg class="ring" viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true"><path d="M26 70C30 24 168 10 186 52S150 132 92 128 10 100 22 62 120 14 176 30" fill="none" stroke="#c8321f" stroke-width="4" stroke-linecap="round"/></svg>
-      </button>
+  <div class="wrap inner">
+    <div class="topbar"><span class="eyebrow">Приглашение на день рождения</span><span class="eyebrow">Рейс EG 2710 · 27.10</span></div>
+    <h1><span>Невероятные приключения</span>Егора</h1>
+    <div class="meta"><span><b>27 октября</b></span><span>16:00</span><span>Чкаловские просторы, 463</span></div>
+    <div class="cta">
+      <a class="btn fill" href="#reg">Зарегистрироваться на рейс</a>
+      <a class="btn ghost" href="#ticket">Посадочный талон</a>
     </div>
+    <div class="secret" id="secret" hidden>
+      <b>Вы нашли пасхалку</b>
+      Скажите Егору на входе пароль «снежный барс». Что за это будет, узнаете на месте.
+    </div>
+    <div class="hint">иногда лучший вид — с крыла</div>
   </div>
-  <div class="secret" id="secret" hidden>
-    <span class="label">Отмеченный кадр · только для внимательных</span>
-    <b>Вы нашли то, что не все замечают.</b>
-    Скажите Егору на входе пароль «снежный барс». Что за это будет, узнаете на месте.
-  </div>
+</header>
 
-  <!-- табло -->
-  <div class="board" aria-label="Табло вылета">
-    <div class="row h"><span>РЕЙС</span><span>НАПРАВЛЕНИЕ</span><span>ВЫХОД</span><span>СТАТУС</span></div>
-    <div class="row d"><span>EG 2710</span><span>Чкаловские просторы</span><span class="gate">463</span><span class="status" id="status">ПО ПЛАНУ</span></div>
-    <div class="count" id="count" aria-live="polite">
-      <div class="cell"><b id="cd">–</b><span>ДНЕЙ</span></div>
-      <div class="cell"><b id="ch">–</b><span>ЧАСОВ</span></div>
-      <div class="cell"><b id="cm">–</b><span>МИНУТ</span></div>
-      <div class="cell"><b id="cs">–</b><span>СЕКУНД</span></div>
+<!-- ===================== ЦИТАТА ===================== -->
+<section class="quote">
+  <div class="wrap">
+    <p>Видеть мир, встречать неизвестность, проходить сквозь преграды, находить друг друга, становиться ближе и по-настоящему <em>чувствовать жизнь.</em></p>
+    <div class="sig">Егор приглашает</div>
+  </div>
+</section>
+
+<!-- ===================== ПОСАДОЧНЫЙ ТАЛОН ===================== -->
+<section class="boarding" id="ticket">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow" style="color:var(--red)">Посадочный талон</div><h2 style="margin-top:8px">Вместе отправимся<br>в приключение</h2></div>
     </div>
-  </div>
 
-  <!-- маршрут -->
-  <section>
-    <span class="label">Маршрут экспедиции</span>
-    <div class="route">
-      <div>
-        <h2>Гренландия, Исландия, Гималаи. И финальная точка.</h2>
-        <p style="margin-top:14px">Дальние страны подождут. Самое интересное в этом сезоне происходит по адресу:</p>
-        <div class="addr" id="addr">Чкаловские просторы, 463</div>
-        <div class="btns">
-          <button class="btn" id="copyAddr" type="button">Скопировать адрес</button>
-          <a class="btn" href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A7%D0%BA%D0%B0%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%8B%20463" target="_blank" rel="noopener">Открыть на карте</a>
+    <div class="ticket">
+      <div class="t-main">
+        <div class="t-top">
+          <span class="air"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 13l8-2 4-8h2l-2 8 6 1 2-3h2l-1 4 1 4h-2l-2-3-6 1 2 8h-2l-4-8-8-2z" fill="currentColor"/></svg>Egor Airlines</span>
+          <span class="eyebrow" style="color:var(--muted)">Boarding pass</span>
+        </div>
+        <div class="route">
+          <div class="city"><div class="code">БУД</div><div class="name">Будни</div></div>
+          <svg class="plane" viewBox="0 0 120 24" aria-hidden="true"><path d="M0 12H100" stroke="currentColor" stroke-width="2" stroke-dasharray="5 5"/><path d="M96 12l-8-6h4l10 6-10 6h-4z" fill="currentColor"/></svg>
+          <div class="city to"><div class="code">ЧКЛ</div><div class="name">Чкаловские просторы</div></div>
+        </div>
+        <div class="fields">
+          <div class="f wide"><div class="k">Пассажир</div><div class="v" id="paxName">Ваше имя</div></div>
+          <div class="f"><div class="k">Рейс</div><div class="v">EG 2710</div></div>
+          <div class="f"><div class="k">Статус</div><div class="v" id="paxStatus" style="color:var(--red)">Ждём ответа</div></div>
+          <div class="f"><div class="k">Дата</div><div class="v">27.10</div></div>
+          <div class="f"><div class="k">Посадка</div><div class="v">16:00</div></div>
+          <div class="f"><div class="k">Выход</div><div class="v">463</div></div>
+          <div class="f"><div class="k">Место</div><div class="v small">у окна, с видом на приключения</div></div>
+        </div>
+        <div class="count" aria-label="До вылета">
+          <div class="c"><b id="cd">–</b><span>ДНЕЙ</span></div>
+          <div class="c"><b id="ch">–</b><span>ЧАСОВ</span></div>
+          <div class="c"><b id="cm">–</b><span>МИНУТ</span></div>
+          <div class="c"><b id="cs">–</b><span>СЕКУНД</span></div>
         </div>
       </div>
-      <div class="map" aria-hidden="true">
-        <svg viewBox="0 0 480 300">
+      <div class="t-stub">
+        <div class="f"><div class="k">Место встречи</div></div>
+        <div class="t-stub addr" style="padding:0;border:0" id="addr">Чкаловские просторы, 463</div>
+        <div class="row">
+          <button class="mini" id="copyAddr" type="button">Скопировать</button>
+          <a class="mini" href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A7%D0%BA%D0%B0%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%8B%20463" target="_blank" rel="noopener">На карте</a>
+        </div>
+        <div class="f"><div class="k">Дата и время</div><div class="v">27.10 · 16:00</div></div>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+      <div class="stamp" id="stamp" hidden>Регистрация пройдена</div>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><div class="k">Питание на борту</div><b>Еда за нами</b>Еда и безалкогольные напитки будут.</div>
+      <div class="rule"><div class="k">Ручная кладь</div><b>Алкоголь свой</b>Берите с собой то, что пьёте сами.</div>
+      <div class="rule"><div class="k">Посадка</div><b>Ровно в 16:00</b>Не опаздывайте, без вас не взлетим.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ПОСТЕРЫ ===================== -->
+<section class="posters">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber)">Кадры из экспедиции</div>
+    <h2 style="margin-top:8px">Горы, океан, города</h2>
+    <p class="lead">Где-то между ними Егор и решил, что этот день рождения надо провести как приключение.</p>
+    <div class="strip">
+      <figure class="poster"><img src="img/p1.jpg" alt="Путешественник с рюкзаком на вершине перед снежными горами" loading="lazy" width="820" height="1230"><figcaption>Гималаи</figcaption></figure>
+      <figure class="poster"><img src="img/p2.jpg" alt="Человек в красной куртке на берегу штормового океана у маяка" loading="lazy" width="820" height="1230"><figcaption>Океан</figcaption></figure>
+      <figure class="poster"><img src="img/p3.jpg" alt="Путешественник с рюкзаком на площади старого города" loading="lazy" width="820" height="1230"><figcaption>Города</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== МАРШРУТ ===================== -->
+<section class="mapsec">
+  <div class="wrap mapgrid">
+    <div>
+      <div class="eyebrow" style="color:var(--red)">Маршрут</div>
+      <h2 style="margin-top:8px">Гренландия, Исландия, Гималаи. И финальная точка</h2>
+      <p>Дальние страны подождут. В этот раз самое интересное происходит на Чкаловских просторах, 463.</p>
+    </div>
+    <div class="map" aria-hidden="true"><svg viewBox="0 0 480 300">
           <path d="M170,0L168.3,3.8M168.5,0L168.3,3.8M166.9,0L168.3,3.8M165,0L168.3,3.8M161.3,0L168.3,3.8M144.6,0L168.3,3.8M0,45.4L53.2,27.8L110.2,13.6L168.3,3.8M0,113.7L20.2,96.8L67.4,62.6L116.9,31.5L168.3,3.8M0,229L26.4,184.6L58.3,136.9L92.8,90.6L129.6,46L168.3,3.8M67.4,300L74.7,271.3L90.2,217.3L107.5,163L126.4,109L146.8,55.7L168.3,3.8M159.4,300L161.1,229.9L164.4,116.1L168.3,3.8M250.3,300L245.4,276.2L232.6,221.5L202.8,111.3L168.3,3.8M350.6,300L347.7,292.7L324.7,242.6L298.4,192.7L269.2,143.3L237.6,95.1L203.9,48.4L168.3,3.8M467.6,300L466.8,298.3L454.1,275.3L424.7,230.3L390.4,186.8L351.9,145.2L309.9,105.8L265,68.9L217.6,34.7L168.3,3.8M480,146.4L479,145.5L457.6,128.3L435.1,112.1L387.1,82.6L335.7,56.9L281.7,35.1L225.6,17.4L168.3,3.8M480,34.2L477.4,33.1L451.8,24L425.4,16.3L398.4,10L342.6,1.2L324,0M209.1,0L168.3,3.8M176.7,0L168.3,3.8M172.2,0L168.3,3.8M436.6,300L436.9,299.8L447.2,290.3L457.1,280.4L466.6,270.1L475.8,259.4L480,254.1M358.6,300L363.3,297.2L373.9,290.2L384.2,282.8L394.3,275L404.1,266.9L413.6,258.3L422.8,249.4L431.6,240.1L440.1,230.5L448.2,220.5L456,210.1L463.3,199.4L470.2,188.4L476.6,177.1L480,170.5M0,256.9L7.8,261.6L17.7,267.1L27.8,272.3L38.1,277.1L48.6,281.5L59.2,285.6L69.9,289.2L80.8,292.5L91.8,295.3L102.9,297.8L114,299.9L114.5,300M221.8,300L227.1,299.1L238.2,296.9L249.2,294.2L260.2,291.2L271,287.8L281.7,284L292.3,279.8L302.7,275.2L312.9,270.3L322.9,265L332.7,259.3L342.3,253.2L351.7,246.8L360.9,240.1L369.7,233L378.3,225.5L386.6,217.7L394.6,209.6L402.3,201.1L409.6,192.3L416.6,183.3L423.2,173.9L429.5,164.2L435.3,154.3L440.7,144L445.7,133.6L450.3,122.8L454.4,111.9L458,100.7L461.1,89.3L463.7,77.7L465.9,66L467.4,54.1L468.5,42.1L469,29.9L468.9,17.6L468.2,5.3L467.7,0M0,196L5.3,200.2L13.2,206.1L21.3,211.6L29.6,216.9L38.1,221.8L46.8,226.4L55.6,230.6L64.6,234.6L73.8,238.1L83.1,241.4L92.5,244.3L102,246.9L111.6,249.1L121.2,250.9L131,252.5L140.8,253.6L150.6,254.4L160.4,254.9L170.3,255L180.1,254.8L190,254.2L199.8,253.2L209.6,251.9L219.3,250.2L228.9,248.2L238.5,245.9L247.9,243.2L257.3,240.1L266.5,236.7L275.6,233L284.6,229L293.4,224.6L302,219.9L310.4,214.8L318.6,209.5L326.7,203.8L334.4,197.8L342,191.5L349.3,184.9L356.3,178.1L363,170.9L369.5,163.5L375.6,155.8L381.4,147.8L386.9,139.6L392.1,131.2L396.8,122.5L401.3,113.6L405.3,104.5L408.9,95.2L412.2,85.8L415,76.1L417.3,66.3L419.3,56.4L420.8,46.3L421.8,36.1L422.4,25.9L422.4,15.5L422,5.1L421.6,0M0,123.6L5,130L10.3,136.1L15.8,142L21.6,147.7L27.6,153.1L33.8,158.3L40.2,163.3L46.8,168L53.6,172.4L60.6,176.5L67.8,180.4L75.1,184L82.5,187.4L90,190.4L97.7,193.2L105.5,195.6L113.3,197.8L121.3,199.7L129.3,201.3L137.4,202.6L145.5,203.6L153.6,204.3L161.8,204.7L170,204.8L178.1,204.5L186.3,204L194.4,203.2L202.5,202.1L210.6,200.7L218.5,199L226.5,197L234.3,194.7L242,192.1L249.6,189.2L257.1,186.1L264.5,182.6L271.7,178.9L278.8,174.9L285.7,170.6L292.5,166.1L299,161.3L305.3,156.3L311.5,151L317.4,145.4L323.1,139.7L328.5,133.7L333.7,127.4L338.6,121L343.2,114.3L347.6,107.5L351.6,100.5L355.4,93.3L358.8,85.9L361.9,78.4L364.7,70.7L367.1,62.9L369.2,54.9L370.9,46.9L372.2,38.7L373.2,30.5L373.8,22.2L374,13.9L373.8,5.5L373.4,0M13,0L12.9,2L12.7,8.3L12.8,14.6L13.2,20.9L13.9,27.2L14.8,33.4L16.1,39.5L17.6,45.6L19.4,51.6L21.5,57.4L23.8,63.2L26.4,68.9L29.2,74.4L32.3,79.8L35.6,85.1L39.2,90.2L42.9,95.2L46.9,100L51,104.6L55.4,109.1L59.9,113.3L64.7,117.4L69.5,121.3L74.6,125L79.8,128.5L85.1,131.8L90.6,134.8L96.2,137.7L101.9,140.3L107.8,142.7L113.7,144.9L119.7,146.9L125.7,148.6L131.9,150.1L138.1,151.4L144.3,152.4L150.6,153.2L156.9,153.7L163.3,154.1L169.6,154.1L175.9,154L182.2,153.6L188.5,152.9L194.8,152L201,150.9L207.2,149.6L213.3,148L219.4,146.1L225.3,144.1L231.2,141.8L237,139.3L242.7,136.6L248.2,133.6L253.6,130.5L258.9,127.1L264.1,123.5L269.1,119.8L273.9,115.8L278.5,111.6L283,107.3L287.3,102.8L291.4,98.1L295.3,93.2L298.9,88.2L302.4,83L305.6,77.7L308.6,72.2L311.3,66.6L313.8,60.9L316,55.1L318,49.2L319.7,43.2L321.1,37.1L322.2,30.9L323.1,24.7L323.7,18.4L323.9,12.1L323.9,5.8L323.6,0M64.1,0L63.9,3.2L63.9,7.4L64.1,11.7L64.4,15.9L65,20.1L65.7,24.3L66.6,28.4L67.7,32.4L69,36.5L70.5,40.4L72.2,44.3L74,48.1L76,51.8L78.2,55.4L80.5,58.9L83,62.4L85.6,65.7L88.4,68.9L91.3,72L94.4,75L97.5,77.8L100.8,80.5L104.3,83.1L107.8,85.5L111.4,87.8L115.1,90L118.9,92L122.8,93.8L126.8,95.5L130.8,97L134.9,98.4L139.1,99.6L143.3,100.7L147.6,101.6L151.9,102.3L156.2,102.8L160.5,103.2L164.8,103.5L169.2,103.5L173.5,103.4L177.9,103.1L182.2,102.6L186.5,102L190.8,101.2L195,100.3L199.2,99.2L203.3,97.9L207.4,96.4L211.4,94.8L215.4,93.1L219.2,91.2L223,89.1L226.7,86.9L230.3,84.6L233.8,82.1L237.1,79.4L240.4,76.7L243.5,73.8L246.5,70.8L249.4,67.6L252.1,64.4L254.6,61L257.1,57.5L259.3,54L261.4,50.3L263.4,46.6L265.1,42.7L266.7,38.8L268.1,34.9L269.4,30.8L270.4,26.7L271.3,22.6L271.9,18.4L272.4,14.2L272.7,10L272.7,5.7L272.6,1.5L272.5,0M116.1,0L116,1.7L115.9,3.8L115.9,6L116.1,8.1L116.3,10.2L116.6,12.3L117,14.4L117.5,16.5L118.1,18.5L118.8,20.5L119.6,22.5L120.5,24.5L121.5,26.4L122.6,28.2L123.7,30L124.9,31.8L126.2,33.5L127.6,35.2L129.1,36.8L130.6,38.3L132.2,39.8L133.9,41.2L135.6,42.6L137.4,43.8L139.2,45L141.1,46.2L143,47.2L145,48.2L147,49.1L149.1,49.9L151.2,50.6L153.3,51.2L155.5,51.8L157.7,52.2L159.9,52.6L162.1,52.9L164.3,53.1L166.5,53.2L168.8,53.3L171,53.2L173.2,53.1L175.4,52.8L177.7,52.5L179.8,52.1L182,51.6L184.2,51L186.3,50.3L188.4,49.6L190.4,48.7L192.4,47.8L194.4,46.8L196.3,45.7L198.2,44.6L200,43.3L201.8,42L203.5,40.7L205.1,39.2L206.7,37.7L208.2,36.2L209.6,34.5L210.9,32.9L212.2,31.1L213.4,29.3L214.5,27.5L215.5,25.6L216.5,23.7L217.3,21.7L218.1,19.7L218.8,17.7L219.3,15.7L219.8,13.6L220.2,11.5L220.5,9.4L220.6,7.3L220.7,5.1L220.7,3L220.6,0.9L220.5,0" fill="none" stroke="#a89f90" stroke-width=".8" stroke-dasharray="2 4"/>
           <path d="M470.5,290.9L467.5,295.5L463.9,294.2L460,289L458.1,280.5L462,279.9L465.5,280.9L469.8,283.1L471.5,288ZM221,271.8L218.5,274.4L219,275.3L219.1,275.6L215.1,278.3L212.9,278L211.7,276.2L213.7,275.7L214,275.6L214.4,274.4L217.4,273.9ZM175.5,276.3L177.8,277.9L181.1,277.5L184.3,277.7L184.2,278.6L186.5,277.8L186,279.3L179.9,280L179.9,279.2L174.7,278.4ZM142.1,262.6L140.3,266.4L140.8,268L139.7,270.4L136.7,268.2L134.7,267.5L129.3,264.2L130.1,261.8L134.8,262.8L139,262.7ZM119.2,244.4L120.9,248.3L119.3,254.8L117.6,254.1L115.7,255.5L114.4,253.9L115.3,247.9L115,244.9L117,245.6ZM121.3,240L119.4,243.6L117.8,242.3L117.6,238.8L118.6,237.1L121.3,235.6ZM81.7,174.5L75.5,174.8L71.9,172.1L76.4,168.5L77.2,163.1L82.5,161.3L85.5,160.1L87.8,161L89.4,165.1L86.6,167.7L85.6,171.2ZM141.7,174.5L139.4,178.3L136.9,175L136.8,172.9L141.2,171.9ZM104,148.8L99.3,152.8L102.1,153.2L104.9,154.3L102.8,157.9L98.8,161.3L101.4,162.6L101.8,169.8L103.5,171.2L103.4,177.3L103.6,179.5L106.8,181.6L105.6,184.6L103.6,185.5L104,188.4L100.5,190L96.5,188.6L90.9,188L89.8,186.6L87,188L84.5,186.3L81.7,187.2L80.5,185.6L86.8,182.5L89.8,182.6L85.5,179.9L85.5,177.7L89,177.5L88.5,174.3L90.3,171.4L94.2,173.5L95.7,170.9L95,167.2L92,165L91.9,163.4L93.7,161.7L93.4,160.1L91.1,161.7L92.9,157.1L92.6,154.1L95.6,149.7L99.2,146.7L100.9,147.9ZM98.5,101.2L96.3,103.7L96.4,107.9L92,109.7L84.8,109.1L82.7,108.7L80.8,106.3L77,101.2L80.1,100.8L78.2,95.8L81.6,97.5L82.5,96.3L80,92.5L83.3,90.9L86.1,92.3L86.3,97L90.5,96.7L91.7,99.4L95.9,99ZM270.2,228.3L273.3,230.9L275,230.4L276.6,231.2L273.8,232.9L274.5,236.8L274.4,238.7L273.5,240.3L274.4,242.6L276.8,245.6L280.7,245.1L284.2,246.3L289.9,244.7L295.2,240.7L295.1,239.4L293.1,236.5L291.5,231.4L288.1,231.2L287.7,227.6L285.2,228.5L284.4,224.2L288.1,223.7L290.5,220.7L286.8,219.2L284.6,217.1L282.4,219.6L283.5,223.2L281.1,220.7L280.5,219.7L280.5,217.3L279.2,216L274.6,216.3L271.4,212.8L269.1,212.4L268.3,210.9L271.7,209.9L270.5,206.5L272.9,204.4L276,203.7L274.6,198.9L272.7,196.4L269.7,198.1L266.5,198.2L263.7,201.9L261.1,204.2L260.7,207.6L257.8,209.7L256.2,215.9L260.9,219.2L261.6,222.6L267.4,226.6ZM422.5,0L423.7,4L426.1,7.6L427.6,12.4L425.3,9.7L423.5,10.1L420.1,6.1L417.7,7.7L419.5,11.7L423,17.2L426,20.6L426.2,24.7L428.3,27.5L431.6,26.3L432.4,23L434.5,23.5L435.9,20.5L432.5,14.7L434.2,11.3L434.2,8.5L436.6,8.4L438.2,15L440.8,17.8L443.2,22.8L446.4,26.1L449,22L453.5,21.7L457.7,20.2L461.2,18L464.6,19.2L465.9,22.7L468.3,22.3L469.7,19.9L473.4,21.9L477,24.5L477.4,27.4L480,30.4L480,186.3L480,186.3L475,186L474.1,184.1L472.2,186.3L467.6,186.7L465.1,186.1L463.3,184.5L461.1,183.7L458.1,183.4L455.5,187.2L457.1,188.3L458.1,191.6L456.3,192.7L456.5,194L455.3,194.8L453.9,196.1L454.7,198L452.7,200.9L449.7,206.8L452.3,209.3L452.5,213.7L450,222.2L449.7,231.3L449,236.8L447.4,243.4L448.7,245.2L447.6,248.2L445.3,253.2L443.8,255.2L444.6,259.5L448.7,263.9L451,267L451.7,272.6L455.7,279.5L453.8,281.8L453.7,286.7L455.7,286.9L452.7,291.6L452.8,295.8L451.8,298.5L445.9,298.3L440.9,294.3L437.1,291.5L434.7,290.9L430.4,288.8L426.6,284.5L424.4,282.6L417.6,280.1L411.5,273.4L407.3,269.1L404.4,264L401.3,260.8L397.2,268.1L394.2,269.8L386.2,268.8L387.2,265.8L385.2,265L378.6,265L375.2,266.1L372.4,263.9L367.6,262.8L360.8,268.8L354.4,273.2L348.9,277.5L340.6,280.8L335.6,282.4L330.6,284.4L326.6,279.8L324.3,280.1L321.4,282.6L318,286.9L312.2,287.9L306.6,286.4L302.1,286.9L297.7,283.8L292.5,278.9L290.5,280.6L287.3,280.1L286.4,282.6L283.8,283.3L285.3,285.1L285.2,286.3L287.7,289.3L290.7,292.6L293.1,292.9L294.4,294.2L298,294.9L298.9,296.7L298.9,298.4L300,299.8L300.5,300L159.1,300L159.1,300L159.6,299.5L158.6,295.7L160.1,293.4L163.3,291.1L166.3,290.5L172.2,291.5L173.8,293.7L175.4,293.7L176.9,294.5L181.3,294.9L182.4,296.5L188.3,296.1L192.7,297.1L197.2,298.2L199.4,298.7L202.7,296.8L204.3,295.2L208.2,294.3L211.4,294.5L212.9,296.8L213.8,295.1L217.4,295.7L220.9,295.4L222.9,293.8L224,292L223.6,291.7L224.5,289.3L224.8,285.4L225.2,284.1L225.3,284L226.2,279.7L227.7,275.9L227.8,275.7L226.7,272.1L227.4,269.8L225.5,267.9L226.7,265.8L224.3,266.7L220.7,266.2L218.3,269.5L212.1,271.1L208.5,268.9L204,269.4L203.3,271.5L200.5,272.4L196.2,270.2L191.7,270.7L189,266L185.8,263.4L187.6,259.4L184.9,257.2L189,252.1L195,251.4L196.3,247.5L203.6,247.2L207.8,243.4L212,241.3L218.2,240L225.4,242.2L231.2,242.8L235.4,241L238.7,240.6L242.4,236.8L242.5,234.6L240.7,231.5L238.1,230.3L236,230.3L234.3,229.2L228.8,226.2L224.4,225.3L220.7,223.1L223.1,221.7L225.1,216.9L222.7,215.5L227.3,212.2L226.9,211.2L224.1,212.7L221.5,213.8L219.6,215.9L216.4,216.8L213.8,219.2L214.5,222.3L216.5,223.1L220,222.1L219.6,224L215.9,225.7L211.6,229.4L209.4,228.7L209.8,226.3L205.7,225.5L206.2,224.4L209.3,222.2L208.2,221.2L202.5,220.8L202.1,219L198.9,220L197.9,222.9L195.6,227L195.8,228.2L194.2,229.5L193,229.2L192.6,235.3L190.8,237.5L189.7,241.2L191.2,244L191.8,245.9L195.2,247.2L194.6,248.4L190.1,249.1L188.5,250.8L185.4,253.7L184.1,251.5L184.1,250.4L181.7,250.4L179.7,250L175,251.5L177.8,254.2L175.8,255.1L173.6,255.1L171.5,252.6L170.8,253.7L171.7,256.7L173.7,259L172.2,260.1L174.5,262.4L176.5,263.8L176.7,266.6L172.9,265.3L174.1,267.9L171.5,268.4L173.1,272.8L170.4,272.9L167,270.7L165.4,266.7L164.8,263.4L163.2,261.1L161.2,258.2L161,256.8L160.3,256.4L160.3,255.3L158.1,253.6L157.9,251.2L158.3,247.8L158.9,246.2L158.3,245.4L157.5,245L156.5,243.3L154.9,242.3L151.5,240.2L149.4,238.3L146.1,236.5L143.3,232.5L144.1,232.2L142.6,230L142.7,228.3L140.5,227.2L139.2,229.2L138.3,227.4L138.6,225.7L138.7,225.7L139.6,225.3L136.8,224.2L133.7,225.6L133.6,228.1L133,229.5L133.8,232.2L137,235.1L138.4,239.5L142.2,243.9L145.2,244.2L146,245.4L144.9,246.3L148.2,248.4L150.9,250.1L154.1,252.9L154.5,253.8L153.7,255.6L151.6,253.1L148.2,252.1L146.4,255.2L149.1,257.2L148.5,259.8L146.8,260L144.3,264L142.6,264.3L142.8,262.8L143.8,260.2L144.7,259.2L143.4,256.2L142.4,253.5L140.8,252.8L139.9,250.5L137.5,249.3L136,247.1L133.2,246.4L130.5,243.8L127.5,240L125.4,236.8L125,231.7L123.3,230.8L120.7,228.6L118.9,228.9L116.4,230.8L114.8,230.8L111,232.9L104.1,229.8L98.5,230L97.3,232.8L96.8,235.7L92.5,237.9L87.5,237.5L86.7,239L83.6,240.9L81.1,244.4L81.7,247.6L78.9,249L77.2,251.8L74,251.8L70.1,254.5L65.2,252.7L61.5,251.2L58.5,251.9L56.4,253L54.7,251.9L53.8,249.7L53.7,246.5L50.5,244.2L48.5,244.7L46.8,243.2L44.7,242.8L46.7,239.4L47.5,236.4L46.1,235.2L45.9,233L47.5,230.1L49.6,229.2L50.7,227.4L52.6,225L53.3,223L53.3,221L53.9,219.4L55.4,216.2L54.9,213.5L61.1,212.4L64.8,215.1L69.4,217.1L72.8,219.4L75.7,220.3L81.2,222.6L84,220.4L87.7,211L86,204.8L84.5,201.5L80.3,197.7L81.3,194.1L85.7,194.7L90.5,197.9L91.4,192.1L93.6,195.3L102,193.9L104.1,190.2L107.1,190.1L109.8,189.8L111.7,188.9L116.2,182.4L120.7,181.3L123.1,182.1L123.9,181.1L126.4,181.4L126.8,182.6L129.2,180.6L128.9,178.6L129.4,175.7L128.8,172.7L129.7,167.6L130.5,166.4L131.5,165.1L134,165.2L135.2,164L137.6,163L137,165.6L136,167L136,168.5L137.4,169.5L136.4,171.3L135.7,170.6L133,173.8L133.4,176.4L133.1,178.3L135.8,180L135.5,181.8L138.6,181.3L140.5,180.2L143.5,182.6L144.7,184.4L146.9,183.1L151.7,181.2L155.5,179.8L158.4,180.8L158.6,182.1L161.4,182.3L162.2,180.1L166.2,178.5L165.6,174.2L165.8,170.4L167.2,167.3L169.7,165.5L172,169.3L174.2,169.1L174.6,165.2L174.8,162.2L173.8,162.9L172.1,161.1L171.8,158.2L175,156.7L178.2,155.8L181.1,156.5L183.7,156.1L186.3,153L183.4,150.9L179,151.6L174.6,153.7L170.5,154.9L169,152.2L166.6,150.5L167.2,145.5L166.1,140.9L167.3,138L169.3,134.8L174.2,129.2L175.6,128L175.2,125.9L172.2,123.6L168.7,125.1L166.6,128.7L166.9,131.8L163.3,135.8L158.7,139.9L156.5,146.9L158,150.6L160.2,153.5L157.5,159.1L154.7,160.1L153,168.5L151,173.1L147.7,172.3L145.6,176.1L142.3,175.9L142,171L140.6,165L139.7,157.6L138.5,154.2L132.3,159L128.6,159.4L125.6,156L126.1,150.5L128.3,138.9L131.2,136.3L138.1,133.5L143.4,129.2L148.4,122.9L154.5,113.8L158,110.3L163.4,104.3L167.3,102.2L170.1,102.5L172.5,98.2L175.6,98.3L178.4,97L184.1,100.1L182.1,101.7L184.4,104.6L185.9,102.6L189.4,105.1L194.4,105.3L202.7,109.1L204.9,110.9L206,114.1L204.6,117.3L201.8,119.5L192.1,117.7L190.7,118.6L194.7,121.6L196.5,129L199.6,129.9L201.6,130.8L201.3,128.3L199.4,126.4L200.4,124.3L206.2,126.1L207.6,124.4L205.2,121.2L208.3,115.1L210.2,114.8L212.6,115.8L212.5,112.2L209.9,109.9L209.7,106.7L207.4,104.2L212.8,103.9L214.9,106.1L212.9,107.6L213.9,110.2L216,111.3L218.5,109.1L217.6,105.9L220.2,102.1L223.9,95.3L225.3,94.9L225.2,98.4L227.5,97.8L227.8,95.6L230.6,93.7L231.8,90.5L235.2,91.9L235,87.9L231.7,86.5L231.5,84.6L236.6,82.9L239.5,82.6L248.3,82.8L247.4,79.9L244.2,79.2L243.4,78.4L241.5,79.4L240.3,77.2L237,74.8L235.8,73.6L234.9,68.2L232.3,64.2L232.4,62.7L236.1,60.9L238.4,62.6L240.5,66.5L242.4,66.9L245.4,69L250.2,74.2L253.9,74.9L255.9,77.9L258.5,85.7L260.6,84.6L259.8,82.8L260.3,80.3L258.8,78.1L258.1,75.3L255.2,74.1L253.2,71.2L251.6,72.3L249.2,70.7L246.2,66.2L241.7,64.9L241,60.6L237.9,58.4L238.3,57.8L241,59L244.4,62.7L246.3,62L242.9,60.2L243,56.9L244.6,54.3L248.7,53.7L244.4,52.3L239.8,49.2L240.3,46.7L242.2,44L243.1,41.1L240.2,40.7L237.9,37.7L238.5,36.3L237.2,33L237.9,29.8L236.7,28.9L237.4,25.8L238.8,25.3L236.9,21.9L237.5,19.9L235.4,18.9L233.5,17.4L231.9,14.4L233.9,12.9L234.9,14.7L236.1,12.3L238.6,12.5L237.5,11.2L237.8,7.9L240.5,5.6L242.4,4.7L245.1,5.2L246.6,6.7L249.3,10.5L250.8,11.7L251.7,10.1L253.1,8.3L252.1,6.9L255.5,6.5L254.1,5.8L253.3,3.5L253.8,0L422.5,0ZM302.7,300L302.4,299.4L302.8,296.5L303.8,295.5L305.6,296.3L306.6,299L306.6,300L302.7,300ZM316.9,300L318.9,299.2L320.8,294.6L322.9,290.1L324.5,286L325.1,283.8L325.8,283.9L326.1,286L325.9,287.1L327.9,290.3L331,292.4L334.1,292.8L337.5,291.6L340.3,291L343.3,292.5L345.1,293.3L346.9,293L347.3,294L346.8,297.6L346.6,299.2L346.2,300L316.9,300ZM0,281.6L2.6,279.7L6.1,279.6L10.6,276.4L13.5,275.8L17.6,277.3L22,275.8L24.6,275.6L29.5,273.5L30.7,267.3L33.8,264.1L35.2,261.9L39,260L43.7,259.7L47.4,259.1L51.7,255.4L54,253L56.8,254.2L58.5,257.2L62.3,258.3L66.1,260.9L67.8,261.6L72.4,260.3L77,261L80,259.8L84.2,259.5L91.2,260.6L97.9,262L99.8,263.2L104,262.2L108.3,263.1L109.7,264.5L112.5,264.8L117.3,263.6L120,264.7L119.5,267.2L123.2,266L123.4,267L121,269L120.7,271.3L121.9,272.8L120.8,276.9L117.7,278.9L118.1,281.7L120.3,282.2L121.1,284.7L122.6,285.7L127.5,288.1L129.4,287.9L132.9,289.1L138.5,291.9L140.3,296.5L144.2,297.8L149.8,300L0,300ZM24.4,0L23.9,1.8L25.2,3.6L23.4,6L20.4,9.3L18.5,10.3L18.2,14.7L13.9,15.4L7.6,17.5L7,20L4.2,22.6L7.3,25.7L13.1,26.8L15.7,27.8L11.5,31L5.8,36.2L0.5,41.1L0,41.1L0,0ZM73.1,0L71,0.2L72,3.1L68.7,5L66.7,9.2L64.6,10.9L59.9,13.2L57.4,10.3L54.3,15.1L53.4,18.3L49.1,22L49.3,25.2L45.7,25.5L39.2,23.4L41.1,20.3L45.7,16.2L44.8,13.7L41.9,13.9L39.1,16.6L37,20L35.8,21.1L31,23.7L27.2,23.8L28.3,20.6L31.9,14.2L27.7,18.2L24.9,21.2L23.2,22L24.7,15.3L27.5,9.8L30,6.8L31.4,7.4L34.1,3.8L36.7,0.4L35.3,0.6L35.2,0L40.4,0L40.4,0L40.6,2L42.5,1.2L45,1.7L49.9,3.9L52.2,3.2L54,2.4L56.2,0L73.1,0ZM224.7,83.8L224.1,84.7L219.1,86.8L217.6,85.1L214.4,85.2L212.9,82.9L213.8,81.2L212.4,78.8L212.8,73.6L211.3,73.7L211.9,68.3L210.3,66.5L211.3,62.7L212.7,57.8L215.2,54.7L215.4,51.9L216.6,50L218.6,50.9L219.2,52.6L217.7,57.3L216.2,61.5L215.7,67.8L216.7,73L217.4,78.4L219.8,81.9ZM171.3,63.9L168.9,66L166.9,64.9L167.7,63.6L167.1,62L169.2,61L169.7,62.9ZM228.9,13.1L229.7,19.1L223.5,15.6L223.1,14.7L223.5,14.1L226.9,12.4ZM164.9,54.7L167.9,58.5L165.3,60.4L164.5,64L163.5,64.9L162.6,69L161.2,69.1L159.1,65.8L160.3,64.1L158.9,62.5L157.7,58L157.7,54L160.5,52.7L160.7,54.5L162,54.5L162.5,52.9L163.9,52.8ZM171.3,51.2L173.1,52.8L172,55.6L169.3,56.3L166.5,55.4L166.4,54L165.1,53.9L164.3,51.5L167,50.3L168.2,51.5L169.1,50ZM192,44.9L191.3,46L190.8,46.7L191,47.5L190.5,48.6L189.1,47.9L188.9,46.3L187.1,46.9L188.2,45.4L189.3,44.9L190.1,46L190,44.7L190.3,43.7L191.9,44.1ZM225,17.3L225,19.4L222.8,21.4L220.4,22.2L216.6,21.4L215.3,22.1L212.7,18.8L212.1,16.9L215.1,16.3L220.5,15.8ZM132.4,0L132.2,0.1L132.9,1.8L132.5,3.1L132.2,4.3L132.2,4.3L131.8,5.9L131.2,7.3L130,8.6L128.6,8.8L126.1,7.5L125,5.9L123.8,5.3L123.9,6.9L120.6,5.4L119.1,4.2L114.9,2.9L114.1,1L113.1,0.5L113.1,0L132.4,0ZM142.9,25.1L142.7,30.5L140.4,31.1L138.4,29.5L135.6,27.1L135.1,27.9L137.2,29.4L137.3,32.1L139.4,31.9L138.6,33.6L135.9,35.2L138.7,35.1L142.7,35.7L143.9,37.7L143.1,39.7L138.2,40.9L137.1,41.5L134.4,40.5L135.8,41.9L132.6,44.2L129.9,46.2L126.2,50.6L125.1,54L123.6,53L121,53L120.9,56.5L118.4,60L117,59.5L115.5,64L112.9,62.3L112.8,64.9L111.3,66L109.2,65.3L107.7,64L106.7,67.8L105.2,69.5L104.4,66L102.9,66.5L103.5,68.8L103,72.5L100.7,76L97.8,74.8L98.2,72.5L98.8,69L96.8,71.9L93.5,72.5L96.6,75.7L98.2,77.5L91.7,77.7L85.4,77.2L80.4,74.5L79.1,73L76.3,72.8L70.4,74.3L65,73.1L64,72.1L61.4,70.7L58.8,68.9L55.2,69.2L52.2,71.3L48.8,72.3L43.5,71.4L40.6,74.5L36.5,75.9L31.6,77.7L29.7,74.8L31.6,69.4L29.5,65L31,61.5L34.9,57.7L39.2,51.3L41.9,48.8L46,46.6L49.5,42.1L53.3,41.3L54.6,39.4L60.8,38.9L63.5,40.7L65.8,40.5L69.6,39.2L67.3,38.1L66.2,37.5L65,36.3L66,33.7L69.3,32.3L72.1,32L72.6,33.4L72.4,37.1L74.6,33.2L75.8,31.2L74.7,30L75.5,28.3L80.6,28.4L82.2,26.9L85.4,24.8L90.3,21.6L91.9,19.5L94,19L96.4,15.1L96.4,12.6L95.9,9.5L95.4,6.6L97,5.1L100.3,3L101.9,5.8L102.3,7.9L103.6,3.3L105.8,0.9L107.8,1.1L110.2,4.7L112.9,7.8L114.8,8L116.5,5.5L118.6,6.1L122.5,8.4L123.1,9.4L125.4,8.7L127,10.1L128.2,12L128.8,14L127.4,15.1L130.7,15.9L129.5,18.1L129.5,19.1L128.5,21.1L130.4,18.5L132.5,17.7L136.2,18.3L137,20.2L139.1,19.9L140.6,21.3Z" fill="#ddd5c6" stroke="#6b645a" stroke-width=".9" stroke-linejoin="round"/>
           <path d="M84.9 46.4Q66 76 87 102.9Q250 196 428.5 183.3Q424 124 319.6 103.2" fill="none" stroke="#c8321f" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
@@ -219,184 +343,125 @@ footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:
           </g>
           <g transform="translate(319.6 103.2)"><circle r="15" fill="none" stroke="#c8321f" stroke-width="2.5"/><circle r="5" fill="#c8321f"/></g>
           <text x="313.6" y="79.2" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="22" fill="#c8321f" paint-order="stroke" stroke="#ddd5c6" stroke-width="4">нам сюда · 463</text>
-        </svg>
-      </div>
-    </div>
-  </section>
+        </svg></div>
+  </div>
+</section>
 
-  <!-- памятка -->
-  <section>
-    <span class="label">Памятка участника экспедиции</span>
-    <div class="memo">
-      <div><span class="label">Провиант</span><b>Еда за нами</b>Накормим и напоим: еда и безалкогольные напитки будут.</div>
-      <div><span class="label">Горючее</span><b>Алкоголь свой</b>Берите с собой то, что пьёте сами.</div>
-      <div><span class="label">Время</span><b>Не опаздывайте</b>Начинаем ровно в 16:00, экспедиция ждать не будет.</div>
-    </div>
-  </section>
+<!-- ===================== ВИШЛИСТ ===================== -->
+<section class="wish">
+  <div class="wrap">
+    <h2>Если не знаете, что подарить</h2>
+    <a class="btn" href="https://followish.io/mywishlist/lmtta0lixffdf6" target="_blank" rel="noopener">Открыть вишлист</a>
+  </div>
+</section>
 
-  <!-- вишлист -->
-  <section class="wish">
-    <div><h2 style="font-size:32px">Если не знаете, что подарить</h2></div>
-    <a class="btn solid" href="https://followish.io/mywishlist/lmtta0lixffdf6" target="_blank" rel="noopener">Открыть вишлист</a>
-  </section>
-
-  <!-- анкета -->
-  <section class="form" id="rsvp">
-    <svg class="stampmark" viewBox="0 0 200 200" aria-hidden="true">
-      <defs><path id="ring2" d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0"/></defs>
-      <g fill="none" stroke="#c8321f" stroke-width="4" opacity=".85"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="56"/></g>
-      <text font-family="IBM Plex Mono,monospace" font-weight="600" font-size="15" letter-spacing="3" fill="#c8321f" opacity=".85"><textPath href="#ring2">ЗАЯВКА В ЭКСПЕДИЦИЮ · ЗАЯВКА В ЭКСПЕДИЦИЮ ·</textPath></text>
-      <text x="100" y="110" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="700" font-size="34" fill="#c8321f" opacity=".85">27.10</text>
-    </svg>
-    <span class="label">Анкета участника</span>
-    <h2 style="margin-top:6px">Заявка в экспедицию</h2>
-    <p class="intro">Пустые анкеты не принимаем. Ответьте, придёте ли вы и будет ли с вами +1, чтобы мы рассчитали провиант на всех.</p>
-    <form id="form" novalidate>
-      <div class="field">
-        <label class="q" for="name">Имя участника</label>
-        <input type="text" id="name" autocomplete="name" placeholder="Имя и фамилия">
-      </div>
-      <div class="field" role="radiogroup" aria-labelledby="qGo">
-        <span class="q" id="qGo">Отправляетесь с нами?</span>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="go" id="goYes" value="yes"><span class="box"></span>Да, буду</label>
-          <label class="opt"><input type="radio" name="go" id="goNo" value="no"><span class="box"></span>Не получится</label>
+<!-- ===================== РЕГИСТРАЦИЯ ===================== -->
+<section class="reg" id="reg">
+  <div class="wrap">
+    <div class="box">
+      <div class="eyebrow" style="color:var(--red)">Регистрация на рейс EG 2710</div>
+      <h2 style="margin-top:8px">Летите с нами?</h2>
+      <p class="intro">Ответьте, придёте ли вы и будет ли с вами +1. Так мы рассчитаем места и провиант на всех.</p>
+      <form id="form" novalidate>
+        <div class="field">
+          <label class="q" for="name">Имя пассажира</label>
+          <input type="text" id="name" autocomplete="name" placeholder="Имя и фамилия">
         </div>
-      </div>
-      <div class="field" id="plusField" role="radiogroup" aria-labelledby="qPlus">
-        <span class="q" id="qPlus">Будет ли с вами +1?</span>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="plus" id="plusNo" value="0"><span class="box"></span>Нет, приду один / одна</label>
-          <label class="opt"><input type="radio" name="plus" id="plusYes" value="1"><span class="box"></span>Да, +1</label>
+        <div class="field" role="radiogroup" aria-labelledby="qGo">
+          <span class="q" id="qGo">Придёте?</span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="go" id="goYes" value="yes">Да, лечу</label>
+            <label class="opt"><input type="radio" name="go" id="goNo" value="no">Не получится</label>
+          </div>
         </div>
+        <div class="field" id="plusField" role="radiogroup" aria-labelledby="qPlus">
+          <span class="q" id="qPlus">Будет ли с вами +1?</span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="plus" id="plusNo" value="0">Один / одна</label>
+            <label class="opt"><input type="radio" name="plus" id="plusYes" value="1">Да, +1</label>
+          </div>
+        </div>
+        <div class="field" id="plusNameField" hidden>
+          <label class="q" for="plusName">Имя вашего +1 <small>(необязательно)</small></label>
+          <input type="text" id="plusName">
+        </div>
+        <div class="field">
+          <label class="q" for="adventure">Самое невероятное приключение в вашей жизни <small>(необязательно)</small></label>
+          <input type="text" id="adventure" placeholder="Например: сплавлялся по Катуни на надувном матрасе">
+        </div>
+        <div class="field">
+          <label class="q" for="msg">Пожелание имениннику <small>(необязательно)</small></label>
+          <textarea id="msg"></textarea>
+        </div>
+        <button class="submit" type="submit">Зарегистрироваться</button>
+        <div class="err" id="err" hidden></div>
+      </form>
+      <div class="done" id="done" hidden>
+        <div class="big" id="doneTitle">Регистрация пройдена</div>
+        <p id="doneText"></p>
+        <div id="tgBox" hidden>
+          <p>Ответ не дошёл до таблицы. Отправьте его, пожалуйста, организатору в Telegram:</p>
+          <a class="btn fill" id="tgLink" href="#" target="_blank" rel="noopener">Отправить в Telegram</a>
+        </div>
+        <button class="again" id="again" type="button">Изменить ответ</button>
       </div>
-      <div class="field" id="plusNameField" hidden>
-        <label class="q" for="plusName">Имя вашего +1 <small>(необязательно)</small></label>
-        <input type="text" id="plusName">
-      </div>
-      <div class="field" id="adventureField">
-        <label class="q" for="adventure">Самое невероятное приключение в вашей жизни <small>(необязательно, но Шон оценит)</small></label>
-        <input type="text" id="adventure" placeholder="Например: сплавлялся по Катуни на надувном матрасе">
-      </div>
-      <div class="field">
-        <label class="q" for="msg">Пожелание имениннику <small>(необязательно)</small></label>
-        <textarea id="msg"></textarea>
-      </div>
-      <button class="submit" type="submit">Подать заявку</button>
-      <div class="err" id="err" hidden></div>
-    </form>
-    <div class="done" id="done" hidden>
-      <div class="big" id="doneTitle">Заявка принята</div>
-      <p id="doneText"></p>
-      <div id="tgBox" hidden>
-        <p>Отправьте, пожалуйста, ответ организатору в Telegram, чтобы он точно дошёл:</p>
-        <a class="btn solid" id="tgLink" href="#" target="_blank" rel="noopener">Отправить ответ в Telegram</a>
-      </div>
-      <div><button class="again" id="again" type="button">Изменить ответ</button></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="guests" id="guests" hidden>
-    <h2 style="font-size:28px">Состав экспедиции</h2>
-    <div class="label" style="margin-top:6px">Этот блок видите только вы</div>
-    <div class="tally" id="tally"></div>
-    <div class="tablebox"><table class="gl"><thead><tr><th>Участник</th><th>Ответ</th><th>+1</th><th>Приключение</th><th>Пожелание</th></tr></thead><tbody id="gbody"></tbody></table></div>
-  </section>
-
-  <footer>
-    <span class="label">Невероятные приключения Егора</span>
-    <span class="hand" style="font-size:24px">до встречи 27 октября</span>
-  </footer>
-</div>
+<footer>
+  <div class="wrap">
+    <span class="t">Невероятные приключения Егора</span>
+    <span class="eyebrow">27.10 · 16:00 · Чкаловские просторы, 463</span>
+  </div>
+</footer>
 
 <script>
 (function(){
   var $=function(id){return document.getElementById(id)};
+  /* адрес веб-приложения Google Apps Script, которое пишет ответы в таблицу */
+  var SHEET_URL='https://script.google.com/macros/s/AKfycbzrazrQFh4_4nI5LUR86JykVRAOORfAOYaa_iUUvKsoHgpxgN_k7NTbeUQCEc-xpqjlJg/exec';
 
-  /* кадры 1–24: раскадровка экспедиции. Рисуются в цвете, показываются в негативе, «проявляются» по наведению или нажатию */
-  var SKY='#c9d6dc',SNOW='#f6f4ef',ROCK='#7d7368',DARK='#2c2823',SEA='#5f8296',RED='#c8321f',SUN='#efbe5a',WARM='#e9dcc4',GRN='#6f8a5c';
-  function bg(c){return '<rect width="150" height="100" fill="'+(c||SKY)+'"/>'}
-  var F=[
-    ['06:00, будильник', bg(WARM)+'<circle cx="75" cy="52" r="26" fill="'+SNOW+'" stroke="'+DARK+'" stroke-width="4"/><path d="M75 52V36M75 52 86 58" stroke="'+DARK+'" stroke-width="3" stroke-linecap="round"/><circle cx="56" cy="26" r="8" fill="'+DARK+'"/><circle cx="94" cy="26" r="8" fill="'+DARK+'"/><path d="M58 76 52 86M92 76 98 86" stroke="'+DARK+'" stroke-width="4"/>'],
-    ['Метро, пересадка', bg('#8b8478')+'<rect x="10" y="30" width="130" height="46" rx="10" fill="'+SNOW+'"/><g fill="'+SEA+'"><rect x="22" y="38" width="22" height="18"/><rect x="52" y="38" width="22" height="18"/><rect x="82" y="38" width="22" height="18"/><rect x="112" y="38" width="18" height="18"/></g><rect x="10" y="62" width="130" height="5" fill="'+RED+'"/><path d="M0 84H150" stroke="'+DARK+'" stroke-width="4"/>'],
-    ['Офис, 9:00', bg('#b9c3c6')+'<rect x="40" y="10" width="70" height="90" fill="'+ROCK+'"/><g fill="'+SUN+'"><rect x="48" y="18" width="12" height="10"/><rect x="69" y="18" width="12" height="10" opacity=".3"/><rect x="90" y="18" width="12" height="10"/><rect x="48" y="36" width="12" height="10" opacity=".3"/><rect x="69" y="36" width="12" height="10"/><rect x="90" y="36" width="12" height="10" opacity=".3"/><rect x="48" y="54" width="12" height="10"/><rect x="69" y="54" width="12" height="10" opacity=".3"/><rect x="90" y="54" width="12" height="10"/></g>'],
-    ['Опять завис', bg(WARM)+'<circle cx="52" cy="48" r="12" fill="'+DARK+'"/><path d="M32 100Q34 66 52 64T72 100z" fill="'+DARK+'"/><g fill="'+SNOW+'" stroke="'+DARK+'" stroke-width="2"><circle cx="72" cy="34" r="3"/><circle cx="82" cy="26" r="5"/><path d="M96 22Q94 8 110 10Q118 2 128 10Q142 10 138 24Q144 36 128 36Q118 44 108 36Q94 38 96 22z"/></g><path d="M106 26 116 16 124 26" fill="none" stroke="'+ROCK+'" stroke-width="2"/>'],
-    ['Решился', bg(DARK)+'<path d="M58 12H96V100H58z" fill="'+SUN+'"/><path d="M58 12 44 20V100L58 100z" fill="'+ROCK+'"/><circle cx="77" cy="58" r="7" fill="'+DARK+'"/><path d="M68 100Q70 70 77 68T86 100z" fill="'+DARK+'"/>'],
-    ['Билет в один конец', bg(SEA)+'<g transform="rotate(-8 75 50)"><rect x="24" y="28" width="102" height="46" rx="4" fill="'+SNOW+'"/><path d="M96 28V74" stroke="'+DARK+'" stroke-width="2" stroke-dasharray="3 3"/><rect x="32" y="36" width="54" height="6" fill="'+RED+'"/><rect x="32" y="48" width="40" height="4" fill="'+ROCK+'"/><rect x="32" y="58" width="48" height="4" fill="'+ROCK+'"/><path d="M104 46 116 52 104 58z" fill="'+DARK+'"/></g>'],
-    ['Вертолёт', bg(SKY)+'<path d="M20 22H130" stroke="'+DARK+'" stroke-width="3"/><path d="M75 22V30" stroke="'+DARK+'" stroke-width="3"/><path d="M48 30H92Q106 30 106 46T90 60H56Q46 60 46 50z" fill="'+RED+'"/><path d="M90 34H100Q104 40 100 46H90z" fill="'+SKY+'"/><path d="M46 44H18L12 36" stroke="'+RED+'" stroke-width="5" fill="none"/><path d="M54 68H98M62 60V68M88 60V68" stroke="'+DARK+'" stroke-width="3"/>'],
-    ['Шторм', bg('#7d8b93')+'<path d="M0 66Q20 52 40 66T80 64 120 66 150 60V100H0z" fill="'+SEA+'"/><path d="M48 58H104L96 70H56z" fill="'+DARK+'"/><path d="M76 58V24L96 50z" fill="'+SNOW+'"/><path d="M0 80Q25 70 50 80T100 80 150 78" stroke="'+SNOW+'" stroke-width="2" fill="none"/><path d="M110 10 102 30H112L104 46" stroke="'+SUN+'" stroke-width="3" fill="none"/>'],
-    ['Гренландия', bg(SKY)+'<path d="M0 70H150V100H0z" fill="'+SEA+'"/><path d="M30 70 46 36 58 46 72 22 92 54 104 44 120 70z" fill="'+SNOW+'"/><path d="M46 70 56 84H96L104 70z" fill="#d6e4ea" opacity=".7"/>'],
-    ['Бар у дороги', bg(DARK)+'<path d="M75 0V24" stroke="'+ROCK+'" stroke-width="2"/><path d="M60 24H90L84 34H66z" fill="'+SUN+'"/><path d="M50 34 30 100H120L100 34z" fill="'+SUN+'" opacity=".18"/><rect x="58" y="62" width="20" height="26" rx="2" fill="'+SUN+'"/><rect x="58" y="62" width="20" height="6" fill="'+SNOW+'"/><path d="M78 68Q88 68 88 75T78 82" stroke="'+SUN+'" stroke-width="3" fill="none"/><path d="M20 88H130" stroke="'+ROCK+'" stroke-width="3"/>'],
-    ['Исландия, серпантин', bg(SKY)+'<path d="M0 50Q30 34 60 46T120 36 150 42V100H0z" fill="'+GRN+'"/><path d="M0 64Q40 50 80 60T150 56V100H0z" fill="#58704a"/><path d="M60 100Q74 82 58 72T84 56 104 44" stroke="'+DARK+'" stroke-width="7" fill="none"/><path d="M60 100Q74 82 58 72T84 56 104 44" stroke="'+SUN+'" stroke-width="1" stroke-dasharray="3 3" fill="none"/>'],
-    ['Скейт', bg('#d8cfbf')+'<path d="M24 54Q30 46 40 48H110Q120 46 126 54" stroke="'+RED+'" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="46" cy="64" r="7" fill="'+DARK+'"/><circle cx="104" cy="64" r="7" fill="'+DARK+'"/><circle cx="46" cy="64" r="2.5" fill="'+SNOW+'"/><circle cx="104" cy="64" r="2.5" fill="'+SNOW+'"/><path d="M0 74H150" stroke="'+ROCK+'" stroke-width="3"/><path d="M10 40H30M4 50H18" stroke="'+ROCK+'" stroke-width="2" stroke-linecap="round"/>'],
-    ['Вулкан проснулся', bg('#a7a39c')+'<path d="M10 100 58 40H92L140 100z" fill="'+ROCK+'"/><path d="M58 40H92L84 50 75 44 66 50z" fill="'+RED+'"/><g fill="'+DARK+'" opacity=".75"><circle cx="70" cy="28" r="12"/><circle cx="84" cy="20" r="14"/><circle cx="98" cy="10" r="12"/><circle cx="60" cy="16" r="9"/></g><path d="M75 44 70 70M79 46 88 64" stroke="'+SUN+'" stroke-width="3"/>'],
-    ['Велосипед', bg(SKY)+'<path d="M0 78H150V100H0z" fill="'+GRN+'"/><g fill="none" stroke="'+DARK+'" stroke-width="3"><circle cx="48" cy="62" r="16"/><circle cx="104" cy="62" r="16"/><path d="M48 62 68 38H96L104 62M68 38 78 62H48M78 62 96 38M64 32H74M92 30 98 30"/></g>'],
-    ['Гималаи', bg('#b9c9d6')+'<path d="M0 100 34 46 52 64 84 14 112 56 126 44 150 72V100z" fill="'+ROCK+'"/><path d="M84 14 74 30 82 28 88 36 94 26z" fill="'+SNOW+'"/><path d="M34 46 28 56 36 54 42 58z" fill="'+SNOW+'"/><path d="M126 44 120 54 128 52 134 58z" fill="'+SNOW+'"/>'],
-    ['Футбол на высоте 4000', bg(SKY)+'<path d="M0 50 30 30 60 46 96 24 150 44V60H0z" fill="#a49c90"/><path d="M0 58H150V100H0z" fill="#b5a77f"/><path d="M104 62V80H136V62z" fill="none" stroke="'+SNOW+'" stroke-width="2.5"/><circle cx="62" cy="76" r="8" fill="'+SNOW+'" stroke="'+DARK+'" stroke-width="1.5"/><path d="M58 72 66 80M66 72 58 80" stroke="'+DARK+'" stroke-width="1"/>'],
-    ['Тот самый барс', bg('#e3e6e4')+'<path d="M0 70Q40 58 80 66T150 60V100H0z" fill="'+SNOW+'"/><path d="M48 52Q50 38 64 36H86Q100 38 102 52Q100 64 75 66Q50 64 48 52z" fill="#cfc6b6"/><g fill="'+DARK+'"><circle cx="58" cy="46" r="2.5"/><circle cx="92" cy="46" r="2.5"/><circle cx="66" cy="58" r="2"/><circle cx="84" cy="58" r="2"/><circle cx="75" cy="40" r="2"/></g><g fill="#9fb07a"><ellipse cx="66" cy="50" rx="4" ry="2.5"/><ellipse cx="84" cy="50" rx="4" ry="2.5"/></g><circle cx="66" cy="50" r="1.2" fill="'+DARK+'"/><circle cx="84" cy="50" r="1.2" fill="'+DARK+'"/>'],
-    ['Не стал снимать', bg('#d8d4cc')+'<rect x="44" y="40" width="62" height="38" rx="5" fill="'+DARK+'"/><circle cx="75" cy="59" r="12" fill="'+ROCK+'" stroke="'+SNOW+'" stroke-width="2"/><rect x="52" y="34" width="14" height="7" fill="'+DARK+'"/><path d="M40 86H110" stroke="'+ROCK+'" stroke-width="3"/>'],
-    ['Обратный рейс', bg('#e6cfa7')+'<circle cx="112" cy="70" r="16" fill="'+SUN+'"/><path d="M0 80H150V100H0z" fill="'+ROCK+'" opacity=".6"/><path d="M26 46 116 34 124 40 34 54z" fill="'+SNOW+'"/><path d="M70 42 88 18H96L86 40zM70 48 62 66H70L84 46z" fill="'+SNOW+'"/><path d="M28 46 18 34H24L36 46z" fill="'+SNOW+'"/>'],
-    ['Новосибирск', bg('#c3cdd3')+'<path d="M0 74H150V100H0z" fill="'+SEA+'"/><g fill="'+ROCK+'"><rect x="8" y="40" width="16" height="34"/><rect x="28" y="28" width="14" height="46"/><rect x="118" y="34" width="14" height="40"/><rect x="134" y="46" width="14" height="28"/></g><path d="M40 74Q75 34 110 74" stroke="'+RED+'" stroke-width="4" fill="none"/><path d="M36 66H114" stroke="'+DARK+'" stroke-width="3"/><path d="M52 66V56M64 66V48M75 66V44M86 66V48M98 66V56" stroke="'+DARK+'" stroke-width="1.5"/>'],
-    ['Чкаловские просторы, 463', bg('#3a3f4a')+'<path d="M0 82H150V100H0z" fill="#56604a"/><path d="M40 82V50L75 26 110 50V82z" fill="'+WARM+'"/><path d="M34 52 75 22 116 52" stroke="'+DARK+'" stroke-width="4" fill="none"/><g fill="'+SUN+'"><rect x="52" y="56" width="14" height="12"/><rect x="84" y="56" width="14" height="12"/></g><rect x="68" y="64" width="14" height="18" fill="'+DARK+'"/><circle cx="124" cy="18" r="6" fill="'+SNOW+'"/>'],
-    ['Гирлянды', bg(DARK)+'<path d="M0 26Q38 56 75 30T150 34" stroke="'+ROCK+'" stroke-width="1.5" fill="none"/><path d="M0 62Q40 90 80 66T150 70" stroke="'+ROCK+'" stroke-width="1.5" fill="none"/><g fill="'+SUN+'"><circle cx="14" cy="36" r="4"/><circle cx="36" cy="44" r="4"/><circle cx="58" cy="40" r="4"/><circle cx="80" cy="30" r="4"/><circle cx="102" cy="28" r="4"/><circle cx="126" cy="31" r="4"/><circle cx="20" cy="72" r="4"/><circle cx="44" cy="80" r="4"/><circle cx="68" cy="74" r="4"/><circle cx="92" cy="64" r="4"/><circle cx="116" cy="66" r="4"/><circle cx="140" cy="70" r="4"/></g>'],
-    ['Гости в сборе', bg(WARM)+'<g fill="'+DARK+'"><circle cx="30" cy="48" r="10"/><path d="M14 100Q14 64 30 62T46 100z"/><circle cx="62" cy="42" r="11"/><path d="M44 100Q44 58 62 56T80 100z"/><circle cx="96" cy="44" r="10"/><path d="M80 100Q80 60 96 58T112 100z"/><circle cx="126" cy="50" r="9"/><path d="M112 100Q112 66 126 64T140 100z"/></g><path d="M58 24 62 14 66 24 76 26 66 28 62 38 58 28 48 26z" fill="'+RED+'"/>'],
-    ['Тост', bg('#3d342c')+'<g transform="rotate(-14 60 60)"><path d="M48 24H72L68 54Q60 62 52 54z" fill="'+SUN+'" opacity=".9"/><path d="M60 58V84M50 86H70" stroke="'+SNOW+'" stroke-width="3"/></g><g transform="rotate(14 90 60)"><path d="M78 24H102L98 54Q90 62 82 54z" fill="'+SUN+'" opacity=".9"/><path d="M90 58V84M80 86H100" stroke="'+SNOW+'" stroke-width="3"/></g><path d="M75 10V18M66 14 70 20M84 14 80 20" stroke="'+SNOW+'" stroke-width="2" stroke-linecap="round"/>']
-  ];
-  /* пометки фоторедактора красным карандашом */
-  var MK={
-    4:'<path d="M112 70 122 82 140 56" fill="none" stroke="'+RED+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>',
-    6:'<path d="M14 18Q30 6 48 14" fill="none" stroke="'+RED+'" stroke-width="3" stroke-linecap="round"/><path d="M40 8 48 14 40 20" fill="none" stroke="'+RED+'" stroke-width="3" stroke-linecap="round"/>',
-    12:'<text x="118" y="34" font-family="Caveat,cursive" font-weight="700" font-size="34" fill="'+RED+'">!</text>',
-    16:'<ellipse cx="75" cy="50" rx="44" ry="28" fill="none" stroke="'+RED+'" stroke-width="3.5"/>',
-    17:'<path d="M30 20 120 84M120 20 30 84" stroke="'+RED+'" stroke-width="3" stroke-linecap="round" opacity=".85"/>',
-    20:'<path d="M124 92Q132 70 120 58" fill="none" stroke="'+RED+'" stroke-width="3" stroke-linecap="round"/><path d="M114 64 120 58 128 62" fill="none" stroke="'+RED+'" stroke-width="3" stroke-linecap="round"/>'
-  };
-  var h='';
-  F.forEach(function(f,i){
-    h+='<button type="button" class="fr" aria-label="Кадр '+(i+1)+': '+f[0]+'"><svg class="sc" viewBox="0 0 150 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+f[1]+'</svg>'
-      +(MK[i]?'<svg class="mk" viewBox="0 0 150 100" preserveAspectRatio="none" aria-hidden="true">'+MK[i]+'</svg>':'')
-      +'<i>'+(i+1)+'</i><span class="cap">'+f[0]+'</span></button>';
-  });
-  $('frames').innerHTML=h;
-  $('frames').addEventListener('click',function(e){
-    var b=e.target.closest('.fr'); if(!b)return;
-    b.classList.toggle('dev');
-  });
-
-  $('f25').addEventListener('click',function(){var s=$('secret');s.hidden=!s.hidden;this.setAttribute('aria-expanded',String(!s.hidden))});
+  /* пасхалка: человек на крыле */
+  function toggleSecret(){var s=$('secret');s.hidden=!s.hidden}
+  $('figure').addEventListener('click',toggleSecret);
+  $('figure').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleSecret()}});
 
   /* обратный отсчёт до 27.10.2026 16:00 (Новосибирск, UTC+7) */
   var T=Date.parse('2026-10-27T16:00:00+07:00');
   function pad(n){return n<10?'0'+n:''+n}
   function tick(){
-    var d=Math.max(0,T-Date.now()), s=Math.floor(d/1000);
+    var s=Math.floor(Math.max(0,T-Date.now())/1000);
     $('cd').textContent=Math.floor(s/86400);
     $('ch').textContent=pad(Math.floor(s%86400/3600));
     $('cm').textContent=pad(Math.floor(s%3600/60));
     $('cs').textContent=pad(s%60);
-    if(d===0)$('status').textContent='ПОСАДКА';
   }
-  tick(); setInterval(tick,1000);
+  tick();setInterval(tick,1000);
 
   $('copyAddr').addEventListener('click',function(){
-    var b=this, t='Новосибирск, Чкаловские просторы, 463';
-    var ok=function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Скопировать адрес'},1600)};
+    var b=this,t='Новосибирск, Чкаловские просторы, 463';
+    var ok=function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Скопировать'},1600)};
     var sel=function(){var r=document.createRange();r.selectNodeContents($('addr'));var s=getSelection();s.removeAllRanges();s.addRange(r)};
     try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}
   });
 
-  /* анкета */
-  var db=null, me=null;
-  /* адрес веб-приложения Google Apps Script, которое пишет ответы в таблицу */
-  var SHEET_URL='https://script.google.com/macros/s/AKfycbzrazrQFh4_4nI5LUR86JykVRAOORfAOYaa_iUUvKsoHgpxgN_k7NTbeUQCEc-xpqjlJg/exec';
+  /* регистрация */
   function syncPlus(){
-    var go=document.querySelector('input[name=go]:checked'), no=go&&go.value==='no';
+    var go=document.querySelector('input[name=go]:checked'),no=go&&go.value==='no';
     var p=document.querySelector('input[name=plus]:checked');
     $('plusField').hidden=no;
     $('plusNameField').hidden=no||!(p&&p.value==='1');
   }
   document.querySelectorAll('input[name=go],input[name=plus]').forEach(function(el){el.addEventListener('change',syncPlus)});
 
+  function showPass(r){
+    if(!r)return;
+    $('paxName').textContent=r.name+(r.going&&r.plus?' +1':'');
+    $('paxStatus').textContent=r.going?'Зарегистрирован':'Не летит';
+    $('paxStatus').style.color=r.going?'#3d7a3a':'var(--muted)';
+    $('stamp').hidden=!r.going;
+  }
   function messageText(r){
     var s='ДР Егора 27.10, ответ: '+r.name+' — '+(r.going?'приду':'не получится');
     if(r.going)s+=r.plus?(', буду с +1'+(r.plusName?' ('+r.plusName+')':'')):', без +1';
@@ -407,44 +472,43 @@ footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:
 
   $('form').addEventListener('submit',function(e){
     e.preventDefault();
-    var err=$('err'); err.hidden=true;
-    var name=$('name').value.trim(), go=document.querySelector('input[name=go]:checked'), plus=document.querySelector('input[name=plus]:checked');
+    var err=$('err');err.hidden=true;
+    var name=$('name').value.trim(),go=document.querySelector('input[name=go]:checked'),plus=document.querySelector('input[name=plus]:checked');
     if(!name){err.textContent='Впишите, пожалуйста, своё имя.';err.hidden=false;$('name').focus();return}
     if(!go){err.textContent='Отметьте, придёте ли вы.';err.hidden=false;return}
     if(go.value==='yes'&&!plus){err.textContent='Отметьте, будет ли с вами +1.';err.hidden=false;return}
-    var yes=go.value==='yes', wp=yes&&plus.value==='1';
-    var r={name:name.slice(0,80),going:yes,plus:wp,plusName:wp?$('plusName').value.trim().slice(0,80):'',adventure:$('adventure').value.trim().slice(0,200),msg:$('msg').value.trim().slice(0,500),at:new Date().toISOString()};
-    var finish=function(stored){
+    var yes=go.value==='yes',wp=yes&&plus.value==='1';
+    var r={name:name.slice(0,80),going:yes,plus:wp,plusName:wp?$('plusName').value.trim().slice(0,80):'',adventure:$('adventure').value.trim().slice(0,200),msg:$('msg').value.trim().slice(0,500)};
+    var btn=document.querySelector('.submit');
+    var finish=function(ok){
+      btn.disabled=false;btn.textContent='Зарегистрироваться';
       $('form').hidden=true;$('done').hidden=false;
-      $('doneTitle').textContent=r.going?'Вы в составе экспедиции':'Жаль, будем скучать';
-      $('doneText').textContent=r.going?('Ждём 27 октября в 16:00, Чкаловские просторы, 463'+(r.plus?'. Вас двое, провиант учтём.':'.')):'Спасибо, что предупредили.';
+      $('doneTitle').textContent=r.going?'Регистрация пройдена':'Жаль, будем скучать';
+      $('doneText').textContent=r.going?('Ждём 27 октября в 16:00, Чкаловские просторы, 463'+(r.plus?'. Вас двое, места учтём.':'.')):'Спасибо, что предупредили.';
       $('tgLink').href='https://t.me/share/url?url='+encodeURIComponent(' ')+'&text='+encodeURIComponent(messageText(r));
-      $('tgBox').hidden=stored;
+      $('tgBox').hidden=ok;
+      showPass(r);
       try{localStorage.setItem('egor-rsvp',JSON.stringify(r))}catch(x){}
     };
-    if(SHEET_URL.indexOf('https://script.google.com/')===0){
-      var btn=document.querySelector('.submit'); btn.disabled=true; btn.textContent='Отправляем…';
+    btn.disabled=true;btn.textContent='Отправляем…';
+    try{
       fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(r)})
-        .then(function(){finish(true)},function(){finish(false)})
-        .then(function(){btn.disabled=false;btn.textContent='Подать заявку'});
-    } else finish(false);
+        .then(function(){finish(true)},function(){finish(false)});
+    }catch(x){finish(false)}
   });
-  $('again').addEventListener('click',function(){$('done').hidden=true;$('form').hidden=false});
+  $('again').addEventListener('click',function(){$('done').hidden=true;$('form').hidden=false;$('reg').scrollIntoView()});
 
-  function fill(r){
-    if(!r)return;
-    $('name').value=r.name||'';
-    $(r.going?'goYes':'goNo').checked=true;
-    if(r.going)$(r.plus?'plusYes':'plusNo').checked=true;
-    $('plusName').value=r.plusName||'';$('adventure').value=r.adventure||'';$('msg').value=r.msg||'';
-    syncPlus();
-  }
-  try{fill(JSON.parse(localStorage.getItem('egor-rsvp')))}catch(x){}
-
-  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
-
+  try{
+    var saved=JSON.parse(localStorage.getItem('egor-rsvp'));
+    if(saved){
+      $('name').value=saved.name||'';
+      $(saved.going?'goYes':'goNo').checked=true;
+      if(saved.going)$(saved.plus?'plusYes':'plusNo').checked=true;
+      $('plusName').value=saved.plusName||'';$('adventure').value=saved.adventure||'';$('msg').value=saved.msg||'';
+      syncPlus();showPass(saved);
+    }
+  }catch(x){}
 })();
 </script>
-
 </body>
 </html>
