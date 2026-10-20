@@ -83,3 +83,9 @@ function folder() {
 function out(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
+
+// Запустите один раз вручную: выдаёт доступ к Диску и создаёт папку для фото
+function setup() {
+  var f = folder();
+  Logger.log('Папка для фото: ' + f.getUrl());
+}
