@@ -83,10 +83,11 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
 .fields{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 18px;border-top:1px dashed var(--line);padding-top:16px}
 .f{min-width:0}
 .f .k{font:600 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.f .v{font:600 22px/1.15 var(--cond);text-transform:uppercase;margin-top:3px;overflow-wrap:anywhere}
+.f .v{font:600 22px/1.15 var(--cond);text-transform:uppercase;margin-top:3px;overflow-wrap:break-word;hyphens:manual}
 .f .v.small{font:600 15px/1.3 var(--body);text-transform:none}
 .f.wide{grid-column:span 2}
-.count{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.bottomrow{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}
+.count{display:flex;gap:8px;flex-wrap:wrap}
 .count .c{background:var(--ink);color:var(--paper2);padding:8px 10px 6px;min-width:68px;text-align:center}
 .count .c b{display:block;font:600 28px/1 var(--mono);color:var(--amber);font-variant-numeric:tabular-nums}
 .count .c span{font:400 9.5px var(--mono);letter-spacing:.16em}
@@ -96,7 +97,7 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
 .t-stub .mini{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:7px 10px;background:transparent;cursor:pointer;text-decoration:none;color:var(--ink)}
 .t-stub .mini:hover{background:var(--ink);color:var(--paper2)}
 .barcode{height:56px;margin-top:auto;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px,var(--ink) 13px 16px,transparent 16px 18px)}
-.stamp{position:absolute;right:320px;top:18px;font:700 13px var(--mono);letter-spacing:.14em;color:var(--red);border:2.5px solid var(--red);padding:6px 10px;transform:rotate(-8deg);opacity:.85;text-transform:uppercase}
+.stamp{font:700 13px var(--mono);letter-spacing:.14em;color:var(--red);border:2.5px solid var(--red);padding:8px 12px;transform:rotate(-8deg);opacity:.9;text-transform:uppercase;text-align:center;line-height:1.3}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .rule{border-top:2px solid var(--ink);padding-top:12px}
 .rule .k{font:600 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
@@ -105,7 +106,6 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
   .ticket{grid-template-columns:1fr}
   .ticket::before,.ticket::after{display:none}
   .t-stub{border-left:0;border-top:2px dashed var(--line)}
-  .stamp{right:16px;top:auto;bottom:-12px}
   .fields{grid-template-columns:repeat(2,1fr)}
   .rules{grid-template-columns:1fr}
 }
@@ -289,18 +289,21 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
         </div>
         <div class="fields">
           <div class="f wide"><div class="k">Пассажир</div><div class="v" id="paxName">Ваше имя</div></div>
+          <div class="f wide"><div class="k">Статус</div><div class="v" id="paxStatus" style="color:var(--red)">Ждём ответа</div></div>
           <div class="f"><div class="k">Рейс</div><div class="v">EG 2710</div></div>
-          <div class="f"><div class="k">Статус</div><div class="v" id="paxStatus" style="color:var(--red)">Ждём ответа</div></div>
           <div class="f"><div class="k">Дата</div><div class="v">27.10</div></div>
           <div class="f"><div class="k">Посадка</div><div class="v">16:00</div></div>
           <div class="f"><div class="k">Выход</div><div class="v">463</div></div>
-          <div class="f"><div class="k">Место</div><div class="v small">у окна, с видом на приключения</div></div>
+          <div class="f wide"><div class="k">Место</div><div class="v small">у окна, с видом на приключения</div></div>
         </div>
+        <div class="bottomrow">
         <div class="count" aria-label="До вылета">
           <div class="c"><b id="cd">–</b><span>ДНЕЙ</span></div>
           <div class="c"><b id="ch">–</b><span>ЧАСОВ</span></div>
           <div class="c"><b id="cm">–</b><span>МИНУТ</span></div>
           <div class="c"><b id="cs">–</b><span>СЕКУНД</span></div>
+        </div>
+        <div class="stamp" id="stamp" hidden>Регистрация<br>пройдена</div>
         </div>
       </div>
       <div class="t-stub">
@@ -313,7 +316,6 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
         <div class="f"><div class="k">Дата и время</div><div class="v">27.10 · 16:00</div></div>
         <div class="barcode" aria-hidden="true"></div>
       </div>
-      <div class="stamp" id="stamp" hidden>Регистрация пройдена</div>
     </div>
 
     <div class="rules">
