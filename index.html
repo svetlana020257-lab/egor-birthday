@@ -44,7 +44,7 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
 .hero .photo img{width:100%;height:auto;max-height:84vh;object-fit:cover;object-position:50% 25%}
 .hero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,27,46,.5) 0%,rgba(13,27,46,0) 18%,rgba(13,27,46,0) 62%,rgba(13,27,46,.7) 86%,rgba(13,27,46,1) 100%)}
 .hero .inner{position:relative;z-index:2;padding-block:0 clamp(40px,6vw,72px)}
-.topbar{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;text-shadow:0 1px 8px rgba(13,27,46,.6)}
+.topbar{position:absolute;z-index:2;top:calc(18px + env(safe-area-inset-top,0px));left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;text-shadow:0 1px 8px rgba(13,27,46,.6)}
 @media (min-width:1080px){.topbar{left:calc(50% - 522px);right:calc(50% - 522px)}}
 .titlebox{margin-top:clamp(-170px,-11vw,-24px)}
 .hero h1{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(50px,9vw,120px);line-height:.9;margin:0;letter-spacing:-.005em;text-shadow:0 2px 24px rgba(8,16,30,.5)}
@@ -185,9 +185,9 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
 <header class="hero">
   <div class="photo">
     <img src="img/hero.jpg" srcset="img/hero-m.jpg 1000w, img/hero.jpg 1894w" sizes="100vw" alt="Егор сидит на крыле самолёта над облаками" width="1894" height="830" fetchpriority="high">
+    <div class="topbar"><span class="eyebrow">Приглашение на день рождения</span><span class="eyebrow">Рейс EG 2710 · 27.10</span></div>
   </div>
   <div class="wrap inner">
-    <div class="topbar"><span class="eyebrow">Приглашение на день рождения</span><span class="eyebrow">Рейс EG 2710 · 27.10</span></div>
     <div class="titlebox">
       <h1><span>Невероятные приключения</span>Егора</h1>
       <div class="meta"><span><b>27 октября</b></span><span>16:00</span><span>Чкаловские просторы, 463</span></div>
