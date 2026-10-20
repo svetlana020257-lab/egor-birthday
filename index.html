@@ -387,6 +387,8 @@ footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:
 
   /* анкета */
   var db=null, me=null;
+  /* адрес веб-приложения Google Apps Script, которое пишет ответы в таблицу */
+  var SHEET_URL='PASTE_APPS_SCRIPT_URL';
   function syncPlus(){
     var go=document.querySelector('input[name=go]:checked'), no=go&&go.value==='no';
     var p=document.querySelector('input[name=plus]:checked');
@@ -420,8 +422,12 @@ footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:
       $('tgBox').hidden=stored;
       try{localStorage.setItem('egor-rsvp',JSON.stringify(r))}catch(x){}
     };
-    if(db&&me){db.collection('rsvp').doc(me).set(r).then(function(){finish(true)},function(){finish(false)})}
-    else finish(false);
+    if(SHEET_URL.indexOf('https://script.google.com/')===0){
+      var btn=document.querySelector('.submit'); btn.disabled=true; btn.textContent='Отправляем…';
+      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(r)})
+        .then(function(){finish(true)},function(){finish(false)})
+        .then(function(){btn.disabled=false;btn.textContent='Подать заявку'});
+    } else finish(false);
   });
   $('again').addEventListener('click',function(){$('done').hidden=true;$('form').hidden=false});
 
@@ -437,30 +443,6 @@ footer{margin-top:56px;border-top:1px solid var(--ink);padding-top:12px;display:
 
   function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
 
-  if(window.claude&&claude.use){
-    Promise.all([claude.use('db'),claude.use('user')]).then(function(res){
-      db=res[0];var user=res[1];
-      if(!db||!user)return;
-      user.id().then(function(id){
-        me=id;
-        if(id)db.collection('rsvp').doc(id).get().then(function(s){if(s.exists)fill(s.data())},function(){});
-      });
-      user.canEdit().then(function(admin){
-        if(!admin)return;
-        $('guests').hidden=false;
-        db.collection('rsvp').orderBy('at','desc').onSnapshot(function(snap){
-          var y=0,n=0,p=0,rows='';
-          snap.docs.forEach(function(d){
-            var r=d.data()||{};
-            if(r.going){y++;if(r.plus)p++}else n++;
-            rows+='<tr><td>'+esc(r.name)+'</td><td>'+(r.going?'Придёт':'Не придёт')+'</td><td>'+(r.plus?('+1'+(r.plusName?' ('+esc(r.plusName)+')':'')):'—')+'</td><td>'+esc(r.adventure)+'</td><td>'+esc(r.msg)+'</td></tr>';
-          });
-          $('tally').innerHTML='<span class="pill y">Придут: '+y+'</span><span class="pill">+1: '+p+'</span><span class="pill">Всего человек: '+(y+p)+'</span><span class="pill n">Не придут: '+n+'</span>';
-          $('gbody').innerHTML=rows||'<tr><td colspan="5">Пока никто не ответил. Заявки гостей появятся здесь.</td></tr>';
-        },function(){});
-      });
-    },function(){});
-  }
 })();
 </script>
 
