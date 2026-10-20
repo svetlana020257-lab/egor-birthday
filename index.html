@@ -124,6 +124,9 @@ h2{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spaci
 .ph figcaption{display:flex;justify-content:space-between;gap:8px;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#cfd6df;background:#221e1a;padding:0 8px 8px}
 .ph figcaption span{color:var(--amber)}
 .ph .mark{position:absolute;right:14px;bottom:16px;font:700 30px/1 var(--hand);color:#fff;background:var(--red);padding:4px 10px 6px;transform:rotate(-6deg);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.ph .story{background:#221e1a;color:#e9e2d6;font:italic 14px/1.45 var(--body);padding:0 8px 10px;margin:0;overflow-wrap:anywhere}
+.guests-note{margin:22px 0 0;color:#cfd6df;font-size:15px}
+.guests-note a{color:var(--amber)}
 @media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);gap:10px}.ph .mark{font-size:22px;right:10px;bottom:12px}}
 @media (prefers-reduced-motion:reduce){.ph img{transition:none}}
 
@@ -156,6 +159,13 @@ label.opt{flex:1 1 170px;display:flex;align-items:center;gap:10px;cursor:pointer
 label.opt input{position:absolute;opacity:0;width:1px;height:1px}
 label.opt:has(input:checked){background:var(--ink);color:var(--paper2)}
 label.opt:has(input:focus-visible){outline:3px solid var(--amber);outline-offset:2px}
+.upload{display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:relative}
+.upload input[type=file]{position:absolute;width:1px;height:1px;opacity:0;left:0;top:0}
+.upload .btn{color:var(--ink)}
+.upload .btn:hover{background:var(--ink);color:var(--paper2)}
+.upload:has(input:focus-visible) .btn{outline:3px solid var(--amber);outline-offset:3px}
+.up-prev{display:flex;align-items:center;gap:14px}
+.up-prev img{width:84px;height:84px;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .submit{width:100%;font:600 16px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--red);border:0;padding:18px;cursor:pointer}
 .submit:hover{background:#b02f1c}
 .submit:disabled{opacity:.6;cursor:wait}
@@ -284,8 +294,16 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
           <input type="text" id="plusName">
         </div>
         <div class="field">
-          <label class="q" for="adventure">Самое невероятное приключение в вашей жизни <small>(необязательно)</small></label>
-          <input type="text" id="adventure" placeholder="Например: сплавлялся по Катуни на надувном матрасе">
+          <label class="q" for="adventure">Ваше самое невероятное путешествие</label>
+          <textarea id="adventure" maxlength="300" placeholder="Например: сплавлялся по Катуни на надувном матрасе и встретил рассвет на Белухе"></textarea>
+        </div>
+        <div class="field">
+          <span class="q">Фото из этого путешествия <small>(необязательно, появится на сайте среди кандидатов на обложку)</small></span>
+          <div class="upload">
+            <label class="btn" for="photo">Добавить фото</label>
+            <input type="file" id="photo" accept="image/*">
+            <div class="up-prev" id="upPrev" hidden><img id="upImg" alt="Выбранное фото"><button type="button" class="again" id="upDel">Убрать фото</button></div>
+          </div>
         </div>
         <div class="field">
           <label class="q" for="msg">Пожелание имениннику <small>(необязательно)</small></label>
@@ -368,7 +386,8 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
     <div class="eyebrow" style="color:var(--amber)">Архив негативов</div>
     <h2 style="margin-top:8px">Кандидаты на обложку</h2>
     <p class="lead">Шон О'Коннелл всю жизнь искал квинтэссенцию жизни. Егор, похоже, находит её в дороге.</p>
-    <div class="gallery"><figure class="ph feat"><div class="frame"><img src="img/t3.jpg" alt="Егор у старой башни на Кавказе" loading="lazy"><span class="mark">на обложку!</span></div><figcaption><span>№ 01</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t4.jpg" alt="Лестница к Небесным вратам на горе Тяньмэнь" loading="lazy"></div><figcaption><span>№ 02</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t1.jpg" alt="Токаревский маяк и Русский мост" loading="lazy"></div><figcaption><span>№ 03</span>Владивосток</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t6.jpg" alt="Заснеженный каньон" loading="lazy"></div><figcaption><span>№ 04</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t5.jpg" alt="Стеклянная тропа над пропастью" loading="lazy"></div><figcaption><span>№ 05</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t2.jpg" alt="Скалистый мыс над морем" loading="lazy"></div><figcaption><span>№ 06</span>Остров Русский</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t8.jpg" alt="Старые башни на скалах" loading="lazy"></div><figcaption><span>№ 07</span>Кавказ</figcaption></figure></div>
+    <div class="gallery" id="gallery"><figure class="ph feat"><div class="frame"><img src="img/t3.jpg" alt="Егор у старой башни на Кавказе" loading="lazy"><span class="mark">на обложку!</span></div><figcaption><span>№ 01</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t4.jpg" alt="Лестница к Небесным вратам на горе Тяньмэнь" loading="lazy"></div><figcaption><span>№ 02</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t1.jpg" alt="Токаревский маяк и Русский мост" loading="lazy"></div><figcaption><span>№ 03</span>Владивосток</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t6.jpg" alt="Заснеженный каньон" loading="lazy"></div><figcaption><span>№ 04</span>Кавказ</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t5.jpg" alt="Стеклянная тропа над пропастью" loading="lazy"></div><figcaption><span>№ 05</span>Китай</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t2.jpg" alt="Скалистый мыс над морем" loading="lazy"></div><figcaption><span>№ 06</span>Остров Русский</figcaption></figure><figure class="ph"><div class="frame"><img src="img/t8.jpg" alt="Старые башни на скалах" loading="lazy"></div><figcaption><span>№ 07</span>Кавказ</figcaption></figure></div>
+    <p class="guests-note">Ваш кадр тоже может попасть сюда: добавьте фото из своего самого невероятного путешествия при <a href="#reg">регистрации на рейс</a>.</p>
   </div>
 </section>
 
@@ -441,6 +460,41 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
     try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}
   });
 
+  /* фото гостя: уменьшаем до 1400 px, чтобы быстро отправлялось */
+  var photoData='';
+  $('photo').addEventListener('change',function(){
+    var f=this.files&&this.files[0]; if(!f)return;
+    var url=URL.createObjectURL(f), im=new Image();
+    im.onload=function(){
+      var k=Math.min(1,1400/Math.max(im.width,im.height)), c=document.createElement('canvas');
+      c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      photoData=c.toDataURL('image/jpeg',.82);
+      $('upImg').src=photoData;$('upPrev').hidden=false;URL.revokeObjectURL(url);
+    };
+    im.onerror=function(){$('err').textContent='Не получилось открыть это фото. Попробуйте другое, в формате JPG или PNG.';$('err').hidden=false};
+    im.src=url;
+  });
+  $('upDel').addEventListener('click',function(){photoData='';$('photo').value='';$('upPrev').hidden=true});
+
+  /* кадры гостей из таблицы */
+  var BASE=document.querySelectorAll('#gallery .ph').length;
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
+  function loadGuests(){
+    if(SHEET_URL.indexOf('https://script.google.com/')!==0)return;
+    fetch(SHEET_URL).then(function(r){return r.json()}).then(function(j){
+      var g=$('gallery');
+      g.querySelectorAll('.ph.guest').forEach(function(n){n.remove()});
+      (j.photos||[]).forEach(function(p,i){
+        if(!/^[-\w]{20,}$/.test(p.id))return;
+        var f=document.createElement('figure');f.className='ph guest';
+        f.innerHTML='<div class="frame"><img loading="lazy" alt="Путешествие гостя: '+esc(p.name)+'" src="https://drive.google.com/thumbnail?id='+p.id+'&sz=w900"></div><figcaption><span>№ '+String(BASE+i+1).padStart(2,'0')+'</span>'+esc(p.name)+'</figcaption>'+(p.story?'<p class="story">'+esc(p.story)+'</p>':'');
+        g.appendChild(f);
+      });
+    }).catch(function(){});
+  }
+  loadGuests();
+
   /* регистрация */
   function syncPlus(){
     var go=document.querySelector('input[name=go]:checked'),no=go&&go.value==='no';
@@ -460,7 +514,7 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
   function messageText(r){
     var s='ДР Егора 27.10, ответ: '+r.name+' — '+(r.going?'приду':'не получится');
     if(r.going)s+=r.plus?(', буду с +1'+(r.plusName?' ('+r.plusName+')':'')):', без +1';
-    if(r.adventure)s+='. Моё приключение: '+r.adventure;
+    if(r.adventure)s+='. Моё путешествие: '+r.adventure;
     if(r.msg)s+='. '+r.msg;
     return s;
   }
@@ -472,8 +526,9 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
     if(!name){err.textContent='Впишите, пожалуйста, своё имя.';err.hidden=false;$('name').focus();return}
     if(!go){err.textContent='Отметьте, придёте ли вы.';err.hidden=false;return}
     if(go.value==='yes'&&!plus){err.textContent='Отметьте, будет ли с вами +1.';err.hidden=false;return}
+    if(!$('adventure').value.trim()){err.textContent='Расскажите о своём самом невероятном путешествии, это обязательный вопрос.';err.hidden=false;$('adventure').focus();return}
     var yes=go.value==='yes',wp=yes&&plus.value==='1';
-    var r={name:name.slice(0,80),going:yes,plus:wp,plusName:wp?$('plusName').value.trim().slice(0,80):'',adventure:$('adventure').value.trim().slice(0,200),msg:$('msg').value.trim().slice(0,500)};
+    var r={name:name.slice(0,80),going:yes,plus:wp,plusName:wp?$('plusName').value.trim().slice(0,80):'',adventure:$('adventure').value.trim().slice(0,300),msg:$('msg').value.trim().slice(0,500)};
     var btn=document.querySelector('.submit');
     var finish=function(ok){
       btn.disabled=false;btn.textContent='Зарегистрироваться';
@@ -487,8 +542,8 @@ footer .t{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;
     };
     btn.disabled=true;btn.textContent='Отправляем…';
     try{
-      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(r)})
-        .then(function(){finish(true)},function(){finish(false)});
+      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(photoData?Object.assign({photo:photoData},r):r)})
+        .then(function(){finish(true);if(photoData){setTimeout(loadGuests,4000);setTimeout(loadGuests,12000)}},function(){finish(false)});
     }catch(x){finish(false)}
   });
   $('again').addEventListener('click',function(){$('done').hidden=true;$('form').hidden=false;$('reg').scrollIntoView()});
